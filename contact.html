@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Darvan Suleiman</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    header {
+      background-color: #0d6efd;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #0d6efd;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      color: #0a58ca;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Contacteer Mij</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="profile.html">🏠 Profile</a></li>
+      <li><a href="portofolio.html">📁 Project</a></li>
+      <li><a href="skills.html">🛠 Skills</a></li>
+      <li><a href="contact.html" class="active">📞 Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container py-5">
+    <!-- Contact Info -->
+    <section id="contact-info">
+      <h2>Contact Informatie</h2>
+      <p>Neem gerust contact met mij op via de onderstaande gegevens:</p>
+      <ul class="list-unstyled">
+        <li><strong>Email:</strong> <a href="mailto:darvankameran69616@gmail.com">darvankameran69616@gmail.com</a></li>
+        <li><strong>Telefoon:</strong> <a href="tel:+31640665061">+31 6 4066 5061</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/darvansuleiman" target="_blank">Darvan Suleiman</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/darvansuleiman" target="_blank">darvansuleiman</a></li>
+      </ul>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form">
+      <h2>Stuur een Bericht</h2>
+      <form action="submit_form.php" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Naam:</label>
+          <input type="text" class="form-control" id="name" name="name" required />
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required />
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label">Bericht:</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Verstuur</button>
+        </div>
+      </form>
+    </section>
+
+
+    <!-- Social Media -->
+    <section id="social-media">
+      <h2>Volg Mij</h2>
+      <p>Volg mij op sociale media voor meer updates, projecten en nieuws!</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.linkedin.com/in/darvansuleiman" target="_blank">LinkedIn</a></li>
+        <li class="list-inline-item"><a href="https://github.com/darvansuleiman" target="_blank">GitHub</a></li>
+        <li class="list-inline-item"><a href="https://twitter.com/darvansuleiman" target="_blank">Twitter</a></li>
+        <li class="list-inline-item"><a href="https://www.instagram.com/darvansuleiman" target="_blank">Instagram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Darvan Suleiman. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -8,63 +8,130 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Mijn Portfolio</h1>
+        <header class="site-header">
+            <p class="eyebrow">Portfolio</p>
+            <h1>Projecten van Darvan Suleiman</h1>
+            <p class="header-intro">Een selectie van schoolprojecten en webapplicaties waarin ik JavaScript, PHP, Symfony, Next.js, Tailwind en Scrum-ervaring verder ontwikkel.</p>
         </header>
 
         <main class="portfolio-container">
             
             <nav>
                 <ul>
-                    <li><a href="index.html">🏠 Profile</a></li>
-                    <li><a href="portofolio.html" class="active" >📁 project</a></li>
-                    <li><a href="skills.html">🛠 skills</a></li>
-                    <li><a href="contact.html" >📞 Contact</a></li>
+                    <li><a href="index.html">Profile</a></li>
+                    <li><a href="portofolio.html" class="active" >Projecten</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html" >Contact</a></li>
                 </ul>
             </nav>
-            <h2>Mijn Projecten</h2>
-            <p class="pofo-text">Hier zijn enkele projecten waar ik tijdens mijn opleiding aan heb gewerkt. Deze projecten tonen mijn vermogen om problemen op te lossen en moderne webdesign principes toe te passen.</p>
+            <section class="portfolio-hero">
+                <div>
+                    <p class="eyebrow">Werk in ontwikkeling</p>
+                    <h2>Praktische projecten met focus op duidelijke interactie.</h2>
+                </div>
+                <p class="pofo-text">Hier staan projecten die passen bij mijn opleiding ICT Software Development. Ik let op nette code, bruikbare interfaces, samenwerking via GitHub en oplossingen die logisch werken voor de gebruiker.</p>
+            </section>
+
             <div class="projects">
-                <!-- Project 1: Hoger Lager -->
                 <section class="project-img">
-                   <img src="img/hogerlager.png" alt="Afbeelding van het Hoger Lager spel" class="pofo-img">
+                    <img src="img/hogerlager.png" alt="Screenshot van het Hoger Lager spel" class="pofo-img">
                     <div class="project-info">
-                        <h3>🎮 Hoger Lager</h3>
-                        <p>Een interactieve game waarin spelers moeten raden welke object duurder is. Gemaakt met HTML, CSS en JavaScript.</p>
+                        <span class="project-tag">Game</span>
+                        <h3>Hoger Lager</h3>
+                        <p>Een interactieve browsergame waarin spelers raden welk object duurder is. De focus ligt op duidelijke feedback, eenvoudige spelregels en JavaScript-logica.</p>
+                        <div class="project-meta">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Project 2: Schaken -->
                 <section class="project-img">
-                    <a href="https://darvan23.github.io/project2-games/chess/chess.html"> <img src="img/schaken.png" alt="Afbeelding van een schaakbord in het Schaken spel" class="pofo-img"></a>
+                    <a href="https://darvan23.github.io/project2-games/chess/chess.html" aria-label="Open het schaakproject">
+                        <img src="img/schaken.png" alt="Screenshot van het schaakspel" class="pofo-img">
+                    </a>
                     <div class="project-info">
-                        <h3>♟️ Schaken</h3>
-                        <p>Een browser-gebaseerd schaakspel waarin spelers kunnen schaken met een functioneel bord en stukken. Gemaakt met JavaScript en CSS.</p>
+                        <span class="project-tag">Webgame</span>
+                        <h3>Schaken</h3>
+                        <p>Een browser-gebaseerd schaakspel met een functioneel bord en speelbare stukken. Gebouwd om DOM-manipulatie en spelinteractie beter te begrijpen.</p>
+                        <div class="project-meta">
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                        </div>
+                        <a class="project-link" href="https://darvan23.github.io/project2-games/chess/chess.html">Bekijk project</a>
                     </div>
                 </section>
 
-                <!-- Project 3: reviewyourexperience -->
-                    <section class="project-img">
-                    <a href="https://darvan23.github.io/project2-games/chess/chess.html"> <img src="img/hotel.jpg" alt="Afbeelding van een schaakbord in het Schaken spel" class="pofo-img"></a>
+                <section class="project-img">
+                    <img src="img/schaken.png" alt="Schaakstukken als visual voor het chess course project" class="pofo-img">
                     <div class="project-info">
-                        <h3>♟️ Schaken</h3>
-                        <p>Een browser-gebaseerd schaakspel waarin spelers kunnen schaken met een functioneel bord en stukken. Gemaakt met PHP en CSS.</p>
+                        <span class="project-tag">Course project</span>
+                        <h3>Chess Course</h3>
+                        <p>Een show-your-skills project over schaken. Dit is geen schaakbord-game, maar een cursusgerichte website waarin schaakconcepten en presentatie centraal staan.</p>
+                        <div class="project-meta">
+                            <span>GitHub</span>
+                            <span>Course</span>
+                            <span>Show your skills</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/ROCMondriaanTIN/sd24-project-p07-show-your-skills-chess-game">Bekijk op GitHub</a>
                     </div>
                 </section>
-               <!-- Project 4: maze -->
-                         <section class="project-img">
-                    <a href="https://darvan23.github.io/project2-games/chess/chess.html"> <img src="img/maze.jpg" alt="Afbeelding van een schaakbord in het Schaken spel" class="pofo-img"></a>
+
+                <section class="project-img">
+                    <img src="img/hotel.jpg" alt="Hotelinterieur voor reviewproject" class="pofo-img">
                     <div class="project-info">
-                        <h3>♟️ Schaken</h3>
-                        <p>Een browser-gebaseerd schaakspel waarin spelers kunnen schaken met een functioneel bord en stukken. Gemaakt met PHP en CSS.</p>
+                        <span class="project-tag">Review platform</span>
+                        <h3>Review Your Experience</h3>
+                        <p>Een reviewconcept voor gastenervaringen, gemaakt met PHP en CSS. Het project draait om formulieren, duidelijke informatie en een nette presentatie.</p>
+                        <div class="project-meta">
+                            <span>PHP</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-img">
+                    <img src="img/maze.jpg" alt="Screenshot van een doolhofspel" class="pofo-img">
+                    <div class="project-info">
+                        <span class="project-tag">Puzzle game</span>
+                        <h3>Maze Game</h3>
+                        <p>Een doolhofproject waarin de speler door een grid navigeert. Dit project draait om logica, beweging en het vertalen van spelregels naar code.</p>
+                        <div class="project-meta">
+                            <span>Game logic</span>
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-img featured-project">
+                    <div class="project-preview dashboard-preview" aria-hidden="true">
+                        <div class="preview-sidebar"></div>
+                        <div class="preview-main">
+                            <span>&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <div>&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Dashboard</span>
+                        <h3>Project Dashboard</h3>
+                        <p>Een teamdashboard voor het project Fisabililah. Dit project laat zien dat ik kan werken aan een grotere applicatiestructuur met overzichtelijke schermen en gedeelde code.</p>
+                        <div class="project-meta">
+                            <span>Dashboard</span>
+                            <span>Teamproject</span>
+                            <span>GitHub</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/ROCMondriaanTIN/sd24-project-p06-dashboard-fisabililah">Bekijk op GitHub</a>
                     </div>
                 </section>
             </div>
         </main>
 
-        <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Darvan Suleiman. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Darvan Suleiman. Alle rechten voorbehouden.</p>
         </footer>
     </div>
 </body>

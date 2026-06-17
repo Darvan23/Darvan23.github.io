@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Darvan Suleiman</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header class="site-header">
-        <p class="eyebrow">Skills</p>
-        <h1>Technische vaardigheden</h1>
-        <p class="header-intro">De tools, talen en werkwijze uit mijn CV waarmee ik mijn webprojecten bouw en verbeter.</p>
+        <div class="hero-copy">
+            <p class="eyebrow">Skills</p>
+            <h1>Technische vaardigheden</h1>
+            <p class="header-intro">De tools, talen en werkwijze uit mijn CV waarmee ik mijn webprojecten bouw, test en verbeter.</p>
+        </div>
+        <div class="hero-panel" aria-label="Leerhouding">
+            <span>Leerhouding</span>
+            <strong>Bouwen, feedback vragen, verbeteren</strong>
+            <p>Ik leer het best door echte schermen en werkende functies te maken.</p>
+        </div>
     </header>
 
     <main class="skills-container">
-        <!-- Skills Links -->
         <nav class="profile-nav">
             <ul>
                 <li><a href="index.html">Profile</a></li>
@@ -25,36 +33,110 @@
         </nav>
 
         <section class="skills-left">
-            <h2>Mijn technische vaardigheden</h2>
+            <p class="eyebrow">Stack</p>
+            <h2>Skills uit mijn CV</h2>
+            <p class="section-note">Alle technische skills en werkwijzen met een duidelijk niveau.</p>
 
-            <div class="skill">
-                <p>HTML & CSS</p>
-                <div class="progress-bar">
-                    <div class="html">90%</div>
-                </div>
-            </div>
+            <div class="skill-level-grid">
+                <article class="skill-card" style="--level: 90%;">
+                    <div class="skill-card-head">
+                        <h3>HTML</h3>
+                        <span>90%</span>
+                    </div>
+                    <div class="level-track" aria-label="HTML niveau 90 procent"><span></span></div>
+                    <p>Gevorderd</p>
+                </article>
 
-            <div class="skill">
-                <p>PHP</p>
-                <div class="progress-bar">
-                    <div class="php">70%</div>
-                </div>
-            </div>
+                <article class="skill-card" style="--level: 85%;">
+                    <div class="skill-card-head">
+                        <h3>CSS</h3>
+                        <span>85%</span>
+                    </div>
+                    <div class="level-track" aria-label="CSS niveau 85 procent"><span></span></div>
+                    <p>Gevorderd</p>
+                </article>
 
-            <div class="skill">
-                <p>JavaScript</p>
-                <div class="progress-bar">
-                    <div class="js">65%</div>
-                </div>
-            </div>
+                <article class="skill-card" style="--level: 75%;">
+                    <div class="skill-card-head">
+                        <h3>Tailwind</h3>
+                        <span>75%</span>
+                    </div>
+                    <div class="level-track" aria-label="Tailwind niveau 75 procent"><span></span></div>
+                    <p>Goed</p>
+                </article>
 
-            <div class="skill-cloud" aria-label="Overige technische vaardigheden">
-                <span>Symfony</span>
-                <span>Next.js</span>
-                <span>Tailwind</span>
-                <span>GitHub</span>
-                <span>Scrum</span>
+                <article class="skill-card" style="--level: 70%;">
+                    <div class="skill-card-head">
+                        <h3>PHP</h3>
+                        <span>70%</span>
+                    </div>
+                    <div class="level-track" aria-label="PHP niveau 70 procent"><span></span></div>
+                    <p>Goed</p>
+                </article>
+
+                <article class="skill-card" style="--level: 65%;">
+                    <div class="skill-card-head">
+                        <h3>JavaScript</h3>
+                        <span>65%</span>
+                    </div>
+                    <div class="level-track" aria-label="JavaScript niveau 65 procent"><span></span></div>
+                    <p>Goed in ontwikkeling</p>
+                </article>
+
+                <article class="skill-card" style="--level: 60%;">
+                    <div class="skill-card-head">
+                        <h3>Symfony</h3>
+                        <span>60%</span>
+                    </div>
+                    <div class="level-track" aria-label="Symfony niveau 60 procent"><span></span></div>
+                    <p>Basis tot goed</p>
+                </article>
+
+                <article class="skill-card" style="--level: 70%;">
+                    <div class="skill-card-head">
+                        <h3>Next.js</h3>
+                        <span>70%</span>
+                    </div>
+                    <div class="level-track" aria-label="Next.js niveau 70 procent"><span></span></div>
+                    <p>Goed</p>
+                </article>
+
+                <article class="skill-card" style="--level: 75%;">
+                    <div class="skill-card-head">
+                        <h3>GitHub</h3>
+                        <span>75%</span>
+                    </div>
+                    <div class="level-track" aria-label="GitHub niveau 75 procent"><span></span></div>
+                    <p>Goed</p>
+                </article>
+
+                <article class="skill-card" style="--level: 70%;">
+                    <div class="skill-card-head">
+                        <h3>Scrum</h3>
+                        <span>70%</span>
+                    </div>
+                    <div class="level-track" aria-label="Scrum niveau 70 procent"><span></span></div>
+                    <p>Goed</p>
+                </article>
             </div>
+        </section>
+
+        <section class="workflow-section">
+            <article>
+                <span>01</span>
+                <h3>Structuur maken</h3>
+                <p>Ik begin met duidelijke HTML, logische pagina-indeling en een simpele flow.</p>
+            </article>
+            <article>
+                <span>02</span>
+                <h3>Interactie bouwen</h3>
+                <p>Daarna voeg ik JavaScript, formulieren of backend-logica toe waar dat nodig is.</p>
+            </article>
+            <article>
+                <span>03</span>
+                <h3>Verbeteren</h3>
+                <p>Ik test, vraag feedback en werk styling, responsiveness en details verder uit.</p>
+            </article>
         </section>
 
         <section class="detail-grid">
@@ -104,4 +186,5 @@
         <p>&copy; 2026 Darvan Suleiman. Alle rechten voorbehouden.</p>
     </footer>
 </body>
+
 </html>

@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Darvan Suleiman</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <header class="site-header">
-            <p class="eyebrow">Portfolio</p>
-            <h1>Projecten van Darvan Suleiman</h1>
-            <p class="header-intro">Een selectie van schoolprojecten en webapplicaties waarin ik JavaScript, PHP, Symfony, Next.js, Tailwind en Scrum-ervaring verder ontwikkel.</p>
+            <div class="hero-copy">
+                <p class="eyebrow">Portfolio</p>
+                <h1>Projecten van Darvan Suleiman</h1>
+                <p class="header-intro">Een selectie van schoolprojecten en webapplicaties waarin ik JavaScript, PHP, Symfony, Next.js, Tailwind en Scrum-ervaring verder ontwikkel.</p>
+            </div>
+            <div class="hero-panel" aria-label="Portfolio focus">
+                <span>Focus</span>
+                <strong>Games, dashboards en webinterfaces</strong>
+                <p>Projecten waarin logica, layout en gebruikerservaring samenkomen.</p>
+            </div>
         </header>
 
         <main class="portfolio-container">
-            
             <nav>
                 <ul>
                     <li><a href="index.html">Profile</a></li>
-                    <li><a href="portofolio.html" class="active" >Projecten</a></li>
+                    <li><a href="portofolio.html" class="active">Projecten</a></li>
                     <li><a href="skills.html">Skills</a></li>
-                    <li><a href="contact.html" >Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+
             <section class="portfolio-hero">
                 <div>
                     <p class="eyebrow">Werk in ontwikkeling</p>
                     <h2>Praktische projecten met focus op duidelijke interactie.</h2>
                 </div>
                 <p class="pofo-text">Hier staan projecten die passen bij mijn opleiding ICT Software Development. Ik let op nette code, bruikbare interfaces, samenwerking via GitHub en oplossingen die logisch werken voor de gebruiker.</p>
+            </section>
+
+            <section class="project-filter" aria-label="Project kwaliteiten">
+                <span>JavaScript logic</span>
+                <span>Responsive layout</span>
+                <span>PHP forms</span>
+                <span>GitHub workflow</span>
+                <span>Teamwork</span>
             </section>
 
             <div class="projects">
@@ -44,6 +61,7 @@
                             <span>CSS</span>
                             <span>JavaScript</span>
                         </div>
+                        <a class="project-link" href="https://github.com/ROCMondriaanTIN/st-sd-project-p01-hogerlager-Darvan23">Bekijk op GitHub</a>
                     </div>
                 </section>
 
@@ -88,6 +106,7 @@
                             <span>PHP</span>
                             <span>CSS</span>
                         </div>
+                        <a class="project-link" href="https://github.com/ROCMondriaanTIN/sd24-project-p03-review-your-experience-fisabilillah">Bekijk op GitHub</a>
                     </div>
                 </section>
 
@@ -102,6 +121,7 @@
                             <span>JavaScript</span>
                             <span>CSS</span>
                         </div>
+                        <a class="project-link" href="img/maze.jpg">Bekijk visual</a>
                     </div>
                 </section>
 
@@ -135,4 +155,5 @@
         </footer>
     </div>
 </body>
+
 </html>

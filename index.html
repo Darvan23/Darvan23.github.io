@@ -10,13 +10,30 @@
 
 <body>
     <header class="site-header">
-        <p class="eyebrow">Softwareontwikkeling</p>
-        <h1>Darvan Kameran Suleiman</h1>
-        <p class="header-intro">Energieke software development student met ervaring in webontwikkeling, teamwork en nauwkeurig werken.</p>
+        <div class="hero-copy">
+            <p class="eyebrow">Softwareontwikkeling</p>
+            <h1>Darvan Kameran Suleiman</h1>
+            <p class="header-intro">Software development student die websites en webapps bouwt met aandacht voor duidelijke interactie, nette code en samenwerking.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="portofolio.html">Bekijk projecten</a>
+                <details class="cv-download">
+                    <summary class="button button-primary">Download CV</summary>
+                    <div class="cv-menu">
+                        <a href="cv/darvan-kameran-suleiman-cv-nl.pdf" download>Nederlands</a>
+                        <a href="cv/darvan-kameran-suleiman-cv-en.pdf" download>English</a>
+                    </div>
+                </details>
+                <a class="button button-secondary" href="contact.html">Neem contact op</a>
+            </div>
+        </div>
+        <div class="hero-panel" aria-label="Profiel highlights">
+            <span>Beschikbaar voor stage en samenwerking</span>
+            <strong>HTML/CSS - JavaScript - PHP</strong>
+            <p>Leert snel, werkt nauwkeurig en blijft verbeteren met feedback.</p>
+        </div>
     </header>
 
     <main class="profile-container">
-        <!-- Navigation Bar -->
         <nav class="profile-nav">
             <ul>
                 <li><a href="index.html" class="active">Profile</a></li>
@@ -26,15 +43,20 @@
             </ul>
         </nav>
 
-        <!-- Profile Picture -->
-        <section class="profile-image">
-            <img src="img/IMG_7847.jpeg" alt="Darvan Suleiman">
-        </section>
-
-        <!-- Profile Info -->
-        <section class="profile-info">
-            <h2>Over mij</h2>
-            <p>Hallo, ik ben Darvan Kameran Suleiman. Ik volg de opleiding ICT Software Development en ontwikkel mij in JavaScript, PHP, Symfony, Next.js, Tailwind en HTML/CSS. Ik ben een energieke en positieve starter die werkzaamheden nauwkeurig uitvoert en anderen graag motiveert. Ik leer graag door projecten te bouwen, feedback te verwerken en elke versie beter te maken.</p>
+        <section class="intro-section">
+            <div class="profile-image">
+                <img src="img/IMG_7847.jpeg" alt="Darvan Suleiman">
+            </div>
+            <div class="profile-info">
+                <p class="eyebrow">Over mij</p>
+                <h2>Ik bouw stap voor stap aan sterke digitale producten.</h2>
+                <p>Hallo, ik ben Darvan Kameran Suleiman. Ik volg de opleiding ICT Software Development en ontwikkel mij in JavaScript, PHP, Symfony, Next.js, Tailwind en HTML/CSS. Ik ben een energieke en positieve starter die werkzaamheden nauwkeurig uitvoert en anderen graag motiveert.</p>
+                <div class="stat-strip">
+                    <div><strong>2024</strong><span>Start software development</span></div>
+                    <div><strong>5+</strong><span>Projecten gebouwd</span></div>
+                    <div><strong>5</strong><span>Talen gesproken</span></div>
+                </div>
+            </div>
         </section>
 
         <section class="detail-grid">
@@ -76,7 +98,7 @@
                     <article>
                         <span>2020 - 2021</span>
                         <h3>Bezorger, Thuisbezorgd en NYP</h3>
-                        <p>Bestellingen efficiënt leveren en klantgericht communiceren.</p>
+                        <p>Bestellingen snel en klantgericht leveren.</p>
                     </article>
                     <article>
                         <span>04/2019 - 04/2020</span>

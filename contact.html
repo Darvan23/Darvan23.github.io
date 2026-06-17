@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,30 @@
     <title>Contact - Darvan Suleiman</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header class="site-header">
-        <p class="eyebrow">Contact</p>
-        <h1>Neem contact op</h1>
-        <p class="header-intro">Beschikbaar voor vragen over projecten, stages, opleiding en samenwerking in softwareontwikkeling.</p>
+        <div class="hero-copy">
+            <p class="eyebrow">Contact</p>
+            <h1>Neem contact op</h1>
+            <p class="header-intro">Beschikbaar voor vragen over projecten, stages, opleiding en samenwerking in softwareontwikkeling.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="mailto:darvankameran69616@gmail.com">Mail mij</a>
+                <details class="cv-download">
+                    <summary class="button button-primary">Download CV</summary>
+                    <div class="cv-menu">
+                        <a href="cv/darvan-kameran-suleiman-cv-nl.pdf" download>Nederlands</a>
+                        <a href="cv/darvan-kameran-suleiman-cv-en.pdf" download>English</a>
+                    </div>
+                </details>
+                <a class="button button-secondary" href="https://github.com/darvansuleiman">GitHub</a>
+            </div>
+        </div>
+        <div class="hero-panel" aria-label="Contact samenvatting">
+            <span>Locatie</span>
+            <strong>Hoogvliet, Rotterdam</strong>
+            <p>Open voor stage, feedback en projectgesprekken.</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Profile</a></li>
@@ -22,27 +42,25 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Contact Information Section -->
+    <main class="contact-layout">
         <section id="contact-info">
             <h2>Contact informatie</h2>
-            <p>Neem gerust contact met mij op via de onderstaande gegevens:</p>
-            
+            <p>Neem gerust contact met mij op via de onderstaande gegevens.</p>
+
             <ul class="my-contact">
-                <li><strong>Email:</strong> <a href="mailto:darvankameran69616@gmail.com">darvankameran69616@gmail.com</a></li>
-                <li><strong>Telefoon:</strong> <a href="tel:+31615821023">0615821023</a></li>
-                <li><strong>Woonplaats:</strong> Hoogvliet, Rotterdam</li>
-                <li><strong>Portfolio:</strong> <a href="https://darvan23.github.io/">darvan23.github.io</a></li>
-                <li><strong>GitHub:</strong> <a href="https://github.com/darvansuleiman">darvansuleiman</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">Darvan Suleiman</a></li>
-                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/d.boti23">d.boti23</a></li>
+                <li><strong>Email</strong> <a href="mailto:darvankameran69616@gmail.com">darvankameran69616@gmail.com</a></li>
+                <li><strong>Telefoon</strong> <a href="tel:+31615821023">0615821023</a></li>
+                <li><strong>Woonplaats</strong> Hoogvliet, Rotterdam</li>
+                <li><strong>Portfolio</strong> <a href="https://darvan23.github.io/">darvan23.github.io</a></li>
+                <li><strong>GitHub</strong> <a href="https://github.com/darvansuleiman">darvansuleiman</a></li>
+                <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">Darvan Suleiman</a></li>
+                <li><strong>Instagram</strong> <a href="https://www.instagram.com/d.boti23">d.boti23</a></li>
             </ul>
         </section>
 
-        <!-- Contact Form Section -->
         <section id="contact-form">
             <h2>Stuur een bericht</h2>
-            <form action="submit_form.php" method="POST">
+            <form action="mailto:darvankameran69616@gmail.com" method="POST" enctype="text/plain">
                 <label for="name">Naam:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -52,7 +70,7 @@
                 <label for="message">Bericht:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Verstuur</button>
+                <button type="submit">Verstuur bericht</button>
             </form>
         </section>
 
@@ -67,7 +85,6 @@
             </div>
         </section>
 
-        <!-- Social Media Links Section -->
         <section id="social-media">
             <h2>Volg mij</h2>
             <p>Bekijk mijn online portfolio en codeprojecten:</p>
@@ -84,4 +101,5 @@
         <p>&copy; 2026 Darvan Suleiman. Alle rechten voorbehouden.</p>
     </footer>
 </body>
+
 </html>

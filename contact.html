@@ -60,18 +60,63 @@
 
         <section id="contact-form">
             <h2>Stuur een bericht</h2>
-            <form action="mailto:darvankameran69616@gmail.com" method="POST" enctype="text/plain">
+            <form id="contactForm">
                 <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" maxlength="100" required>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
                 <label for="message">Bericht:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
 
-                <button type="submit">Verstuur bericht</button>
+                <!-- honeypot tegen spam bots, blijft onzichtbaar -->
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"
+                       aria-hidden="true" style="position:absolute; left:-9999px;">
+
+                <button type="submit" id="contactButton">Verstuur bericht</button>
+                <p id="contactStatus" role="status"></p>
             </form>
+
+            <script>
+                const FUNCTION_URL = "PLAK_HIER_JE_URL";
+
+                const form = document.getElementById("contactForm");
+                const button = document.getElementById("contactButton");
+                const statusText = document.getElementById("contactStatus");
+
+                form.addEventListener("submit", async (event) => {
+                    event.preventDefault();
+                    button.disabled = true;
+                    button.textContent = "Bezig met versturen...";
+                    statusText.textContent = "";
+
+                    const data = {
+                        name: document.getElementById("name").value.trim(),
+                        email: document.getElementById("email").value.trim(),
+                        message: document.getElementById("message").value.trim(),
+                        website: document.getElementById("website").value
+                    };
+
+                    try {
+                        const response = await fetch(FUNCTION_URL, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(data)
+                        });
+
+                        if (!response.ok) throw new Error("Request failed");
+
+                        form.reset();
+                        statusText.textContent = "Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.";
+                    } catch (error) {
+                        statusText.textContent = "Er ging iets mis. Probeer het later opnieuw of mail mij direct.";
+                    } finally {
+                        button.disabled = false;
+                        button.textContent = "Verstuur bericht";
+                    }
+                });
+            </script>
         </section>
 
         <section id="location">

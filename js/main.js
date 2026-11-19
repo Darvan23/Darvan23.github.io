@@ -409,9 +409,22 @@
     };
     window.dsTrack = track;
 
+    const pagina = () => (location.pathname.split("/").pop() || "index.html").replace(".html", "") || "index";
+    const label = (el) => (el.getAttribute("aria-label") || el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 40);
+
     document.addEventListener("click", (e) => {
+        // buttons and the CV menu toggle
+        const btn = e.target.closest("button, summary");
+        if (btn && !e.target.closest("a")) {
+            if (btn.tagName === "SUMMARY") track("CV menu geopend", { pagina: pagina() });
+            else if (btn.type === "submit") track("Contactformulier verzenden", {});
+            else track("Knop klik", { knop: label(btn), pagina: pagina() });
+            return;
+        }
         const a = e.target.closest("a");
         if (!a) return;
+        if (a.closest(".nav")) { track("Menu klik", { naar: label(a), pagina: pagina() }); return; }
+        if (a.classList.contains("brand")) { track("Logo klik", { pagina: pagina() }); return; }
         const href = a.getAttribute("href") || "";
         const card = a.closest(".project-card");
         const project = card ? (card.querySelector("h3")?.textContent || "").trim() : undefined;
@@ -420,12 +433,13 @@
         else if (a.closest(".ring-item")) track("3D ring klik", { project: a.querySelector("span")?.textContent.trim() });
         else if (a.closest(".deck-card")) track("Deck klik", {});
         else if (a.classList.contains("button-play") || a.querySelector(".play-overlay")) track("Game spelen", { game: project });
-        else if (href.startsWith("mailto:")) track("E-mail klik", { pagina: location.pathname });
+        else if (href.startsWith("mailto:")) track("E-mail klik", { pagina: pagina() });
         else if (href.startsWith("tel:")) track("Telefoon klik", {});
         else if (/linkedin\.com/.test(href)) track("Social klik", { site: "LinkedIn" });
         else if (/instagram\.com/.test(href)) track("Social klik", { site: "Instagram" });
         else if (/github\.com/.test(href)) track(card ? "Code bekijken" : "Social klik", card ? { project } : { site: "GitHub" });
         else if (card) track("Project openen", { project, knop: a.textContent.trim() || "afbeelding" });
+        else track("Link klik", { link: label(a) || href, pagina: pagina() });
     }, true);
 
     // one event per page when someone plays with a 3D element

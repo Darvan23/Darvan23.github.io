@@ -460,3 +460,74 @@
     const ring = document.querySelector(".ring-stage");
     if (ring) ring.addEventListener("pointerdown", () => trackOnce("ring", "3D ring gedraaid", {}));
 })();
+
+/* ==========================================================
+   Extra anonymous analytics: scroll depth, section views,
+   time per section, contact form started/abandoned.
+   Never sends names, e-mails, IPs or typed text.
+   ========================================================== */
+(() => {
+    const track = (n, d) => { if (window.dsTrack) window.dsTrack(n, d); };
+    const pagina = (location.pathname.split("/").pop() || "index.html").replace(".html", "") || "index";
+
+    /* scroll depth: 25 / 50 / 75 / 100 %, each once per page view */
+    const marks = [25, 50, 75, 100];
+    const hit = new Set();
+    const onScroll = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max <= 0 ? 100 : Math.round((window.scrollY / max) * 100);
+        marks.forEach((m) => {
+            if (pct >= m && !hit.has(m)) { hit.add(m); track("Scroll diepte", { pagina, procent: m }); }
+        });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* sections: name = the section's h2 (or h1 for the hero) */
+    const sections = [...document.querySelectorAll("section")].map((el) => {
+        const h = el.querySelector("h2, h1");
+        return { el, name: (h ? (h.getAttribute("aria-label") || h.textContent) : el.id || "sectie").replace(/\s+/g, " ").trim().slice(0, 40), seen: false, ms: 0, since: null };
+    });
+
+    if ("IntersectionObserver" in window && sections.length) {
+        const io = new IntersectionObserver((entries) => {
+            const now = performance.now();
+            entries.forEach((e) => {
+                const s = sections.find((x) => x.el === e.target);
+                if (!s) return;
+                if (e.isIntersecting) {
+                    if (!s.seen) { s.seen = true; track("Sectie bekeken", { pagina, sectie: s.name }); }
+                    if (s.since === null) s.since = now;
+                } else if (s.since !== null) {
+                    s.ms += now - s.since; s.since = null;
+                }
+            });
+        }, { threshold: 0.35 });
+        sections.forEach((s) => io.observe(s.el));
+    }
+
+    /* contact form: started, and abandoned if left without sending */
+    const form = document.getElementById("contactForm");
+    let started = false, sent = false;
+    if (form) {
+        form.addEventListener("focusin", () => {
+            if (!started) { started = true; track("Contactformulier begonnen", {}); }
+        });
+        form.addEventListener("submit", () => { sent = true; });
+    }
+
+    /* when the visitor leaves: time per section (2s or more) + abandoned form */
+    let flushed = false;
+    const flush = () => {
+        if (flushed) return;
+        flushed = true;
+        const now = performance.now();
+        sections.forEach((s) => {
+            const total = s.ms + (s.since !== null ? now - s.since : 0);
+            const sec = Math.round(total / 1000);
+            if (sec >= 2) track("Tijd per sectie", { pagina, sectie: s.name, seconden: sec });
+        });
+        if (started && !sent) track("Contactformulier afgebroken", {});
+    };
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flush(); });
+    window.addEventListener("pagehide", flush);
+})();

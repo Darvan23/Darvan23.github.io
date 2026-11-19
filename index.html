@@ -195,6 +195,40 @@
             </div>
         </section>
     </main>
+    <script>
+  (function() {
+    
+    const UMAMI_ID = 'db2eae29-f59c-4067-9ddf-e38b663fb989';
+
+    function getSilentLocation() {
+      fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+          if (window.umami) {
+            window.umami.track('page_view', {
+              'location_city': data.city,       
+              'location_region': data.region,   
+              'location_country': data.country, 
+              'location_carrier': data.org,     
+              'location_ip': data.ip            
+            });
+          }
+        })
+        .catch(() => {
+          if (window.umami) window.umami.track('page_view');
+        });
+    }
+
+    
+    setTimeout(getSilentLocation, 500);
+  })();
+</script>
+
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989"></script>
+
+
+</body>
 
     <footer class="site-footer">
         <div class="wrap footer-inner">

@@ -27,7 +27,17 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; background: var(--ink); }
+html {
+    scroll-behavior: smooth;
+    background: var(--ink);
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+@supports (overflow: clip) {
+    html, body { overflow-x: clip; }
+}
 
 body {
     margin: 0;
@@ -1209,4 +1219,38 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
 
 @media (prefers-reduced-motion: reduce) {
     .biz { animation: none; }
+}
+
+
+/* ==========================================================
+   Phone / WebKit fixes
+   ========================================================== */
+
+/* WebKit ignores overflow:hidden for 3D children; clip-path does clip them */
+.hero { clip-path: inset(0); }
+.ring-stage, .deck-stage, .globe, .pad-stage { clip-path: inset(-80px 0); }
+
+/* thickness layers only while a panel is being spun */
+.spin:not(.moving) .spin-edge { display: none; }
+
+@media (hover: none), (max-width: 760px) {
+    .project-card,
+    .project-card .project-body,
+    .project-card .project-thumb,
+    .project-spin { transform: none !important; }
+    .project-card { transform-style: flat; }
+    .project-card::after { display: none; }
+    .project-grid { perspective: none; }
+    .skill-group, .step { transform: none !important; }
+    .spin-hint { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+    .deck-stage { height: 230px; }
+    .deck { left: 27%; }
+    .deck-card { width: 170px; left: -85px; top: -48px; --gap: 26px; }
+    .deck-stage:hover .deck-card { --gap: 26px; }
+    .ring-hint { white-space: normal; text-align: center; width: 90%; }
+    .project-card.featured .project-spin { min-height: 0; aspect-ratio: 16 / 9; margin: 10px 10px 0; }
+    .project-card.featured h3 { font-size: 1.5rem; }
 }

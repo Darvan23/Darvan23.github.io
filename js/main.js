@@ -190,7 +190,7 @@
                 rx += (0 - rx) * 0.14;
                 apply();
                 if (Math.abs(target - ry) > 0.2 || Math.abs(rx) > 0.2) raf = requestAnimationFrame(step);
-                else { ry = target; rx = 0; apply(); raf = null; }
+                else { ry = target; rx = 0; apply(); raf = null; spin.classList.remove("moving"); }
             };
             cancelAnimationFrame(raf);
             raf = requestAnimationFrame(step);
@@ -210,7 +210,7 @@
             moved = Math.max(moved, Math.hypot(e.clientX - startX, e.clientY - startY));
             if (moved < 6) return;
             if (!spin.classList.contains("grabbing")) {
-                spin.classList.add("grabbing");
+                spin.classList.add("grabbing", "moving");
                 try { spin.setPointerCapture(e.pointerId); } catch (_) {}
             }
             vy = dx * 0.55;
@@ -233,7 +233,7 @@
             if (moved >= 6) { e.preventDefault(); e.stopPropagation(); }
         }, true);
 
-        spin.flip = () => { vy = 0; ry = Math.round(ry / 180) * 180 + 180; settle(); };
+        spin.flip = () => { vy = 0; spin.classList.add("moving"); ry = Math.round(ry / 180) * 180 + 180; settle(); };
         spin.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 if (spin.dataset.flipOnClick !== undefined) { e.preventDefault(); spin.flip(); }

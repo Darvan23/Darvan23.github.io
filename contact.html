@@ -3,148 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Darvan Suleiman</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Contact | Darvan Suleiman</title>
+    <meta name="description" content="Neem contact op met Darvan Suleiman.">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="hero-copy">
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a class="brand" href="index.html"><span class="brand-mark">DS</span>Darvan Suleiman</a>
+            <nav class="nav" aria-label="Hoofdmenu">
+                <a href="index.html">Profiel</a>
+                <a href="portofolio.html">Projecten</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="wrap">
             <p class="eyebrow">Contact</p>
             <h1>Neem contact op</h1>
-            <p class="header-intro">Beschikbaar voor vragen over projecten, stages, opleiding en samenwerking in softwareontwikkeling.</p>
+            <p class="hero-lead">Vragen over mijn projecten, stage of samenwerking? Stuur een bericht of mail mij direct.</p>
             <div class="hero-actions">
                 <a class="button button-primary" href="mailto:darvankameran69616@gmail.com">Mail mij</a>
                 <details class="cv-download">
-                    <summary class="button button-primary">Download CV</summary>
+                    <summary class="button button-ghost">Download CV</summary>
                     <div class="cv-menu">
                         <a href="cv/darvan-kameran-suleiman-cv-nl.pdf" download>Nederlands</a>
                         <a href="cv/darvan-kameran-suleiman-cv-en.pdf" download>English</a>
                     </div>
                 </details>
-                <a class="button button-secondary" href="https://github.com/darvansuleiman">GitHub</a>
             </div>
         </div>
-        <div class="hero-panel" aria-label="Contact samenvatting">
-            <span>Locatie</span>
-            <strong>Hoogvliet, Rotterdam</strong>
-            <p>Open voor stage, feedback en projectgesprekken.</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Profile</a></li>
-                <li><a href="portofolio.html">Projecten</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </section>
 
-    <main class="contact-layout">
-        <section id="contact-info">
-            <h2>Contact informatie</h2>
-            <p>Neem gerust contact met mij op via de onderstaande gegevens.</p>
+    <main>
+        <section class="section">
+            <div class="wrap contact-grid">
+                <div class="card">
+                    <h2>Gegevens</h2>
+                    <ul class="contact-list">
+                        <li><strong>E-mail</strong> <a href="mailto:darvankameran69616@gmail.com">darvankameran69616@gmail.com</a></li>
+                        <li><strong>Telefoon</strong> <a href="tel:+31615821023">06 158 210 23</a></li>
+                        <li><strong>Woonplaats</strong> <span>Hoogvliet, Rotterdam</span></li>
+                        <li><strong>Rijbewijs</strong> <span>B</span></li>
+                        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">Darvan Suleiman</a></li>
+                        <li><strong>GitHub</strong> <a href="https://github.com/Darvan23">Darvan23</a></li>
+                        <li><strong>Instagram</strong> <a href="https://www.instagram.com/d.boti23">d.boti23</a></li>
+                    </ul>
+                </div>
 
-            <ul class="my-contact">
-                <li><strong>Email</strong> <a href="mailto:darvankameran69616@gmail.com">darvankameran69616@gmail.com</a></li>
-                <li><strong>Telefoon</strong> <a href="tel:+31615821023">0615821023</a></li>
-                <li><strong>Woonplaats</strong> Hoogvliet, Rotterdam</li>
-                <li><strong>Portfolio</strong> <a href="https://darvan23.github.io/">darvan23.github.io</a></li>
-                <li><strong>GitHub</strong> <a href="https://github.com/darvansuleiman">darvansuleiman</a></li>
-                <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">Darvan Suleiman</a></li>
-                <li><strong>Instagram</strong> <a href="https://www.instagram.com/d.boti23">d.boti23</a></li>
-            </ul>
-        </section>
+                <div class="card">
+                    <h2>Stuur een bericht</h2>
+                    <form id="contactForm">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="name" maxlength="100" autocomplete="name" required>
 
-        <section id="contact-form">
-            <h2>Stuur een bericht</h2>
-            <form id="contactForm">
-                <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" maxlength="100" required>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
 
-                <label for="message">Bericht:</label>
-                <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+                        <!-- honeypot tegen spam bots, blijft onzichtbaar -->
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"
+                               aria-hidden="true" style="position:absolute; left:-9999px;">
 
-                <!-- honeypot tegen spam bots, blijft onzichtbaar -->
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"
-                       aria-hidden="true" style="position:absolute; left:-9999px;">
-
-                <button type="submit" id="contactButton">Verstuur bericht</button>
-                <p id="contactStatus" role="status"></p>
-            </form>
-
-            <script>
-                const FUNCTION_URL = "https://portfolio-note-bridge.lovable.app/api/public/portfolio-contact";
-
-                const form = document.getElementById("contactForm");
-                const button = document.getElementById("contactButton");
-                const statusText = document.getElementById("contactStatus");
-
-                form.addEventListener("submit", async (event) => {
-                    event.preventDefault();
-                    button.disabled = true;
-                    button.textContent = "Bezig met versturen...";
-                    statusText.textContent = "";
-
-                    const data = {
-                        name: document.getElementById("name").value.trim(),
-                        email: document.getElementById("email").value.trim(),
-                        message: document.getElementById("message").value.trim(),
-                        website: document.getElementById("website").value
-                    };
-
-                    try {
-                        const response = await fetch(FUNCTION_URL, {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(data)
-                        });
-
-                        if (!response.ok) throw new Error("Request failed");
-
-                        form.reset();
-                        statusText.textContent = "Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.";
-                    } catch (error) {
-                        statusText.textContent = "Er ging iets mis. Probeer het later opnieuw of mail mij direct.";
-                    } finally {
-                        button.disabled = false;
-                        button.textContent = "Verstuur bericht";
-                    }
-                });
-            </script>
-        </section>
-
-        <section id="location">
-            <h2>Profiel in het kort</h2>
-            <p>Energieke en positieve starter die nauwkeurig werkt, graag leert en anderen motiveert. Ik combineer mijn ICT-opleiding met praktische werkervaring in productie, bezorging en klantenservice.</p>
-            <div class="contact-highlights">
-                <span>ICT Software Development</span>
-                <span>Webdevelopment</span>
-                <span>Scrum</span>
-                <span>GitHub</span>
+                        <button type="submit" id="contactButton" class="button button-primary">Verstuur bericht</button>
+                        <p id="contactStatus" role="status"></p>
+                    </form>
+                </div>
             </div>
-        </section>
-
-        <section id="social-media">
-            <h2>Volg mij</h2>
-            <p>Bekijk mijn online portfolio en codeprojecten:</p>
-            <ul>
-                <li><a href="https://darvan23.github.io/">Portfolio</a></li>
-                <li><a href="https://github.com/darvansuleiman">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">LinkedIn</a></li>
-                <li><a href="https://www.instagram.com/d.boti23">Instagram</a></li>
-            </ul>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Darvan Suleiman. Alle rechten voorbehouden.</p>
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <span>&copy; 2026 Darvan Suleiman</span>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">LinkedIn</a>
+                <a href="https://github.com/Darvan23">GitHub</a>
+                <a href="mailto:darvankameran69616@gmail.com">E-mail</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const FUNCTION_URL = "https://portfolio-note-bridge.lovable.app/api/public/portfolio-contact";
+
+        const form = document.getElementById("contactForm");
+        const button = document.getElementById("contactButton");
+        const statusText = document.getElementById("contactStatus");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            button.disabled = true;
+            button.textContent = "Bezig met versturen...";
+            statusText.textContent = "";
+
+            const data = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                message: document.getElementById("message").value.trim(),
+                website: document.getElementById("website").value
+            };
+
+            try {
+                const response = await fetch(FUNCTION_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) throw new Error("Request failed");
+
+                form.reset();
+                statusText.textContent = "Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.";
+            } catch (error) {
+                statusText.textContent = "Er ging iets mis. Probeer het later opnieuw of mail mij direct.";
+            } finally {
+                button.disabled = false;
+                button.textContent = "Verstuur bericht";
+            }
+        });
+    </script>
 </body>
 
 </html>

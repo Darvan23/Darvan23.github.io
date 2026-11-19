@@ -4,186 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Darvan Suleiman</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Skills | Darvan Suleiman</title>
+    <meta name="description" content="Technische skills, tools en talen van Darvan Suleiman.">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="hero-copy">
-            <p class="eyebrow">Skills</p>
-            <h1>Technische vaardigheden</h1>
-            <p class="header-intro">De tools, talen en werkwijze uit mijn CV waarmee ik mijn webprojecten bouw, test en verbeter.</p>
-        </div>
-        <div class="hero-panel" aria-label="Leerhouding">
-            <span>Leerhouding</span>
-            <strong>Bouwen, feedback vragen, verbeteren</strong>
-            <p>Ik leer het best door echte schermen en werkende functies te maken.</p>
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a class="brand" href="index.html"><span class="brand-mark">DS</span>Darvan Suleiman</a>
+            <nav class="nav" aria-label="Hoofdmenu">
+                <a href="index.html">Profiel</a>
+                <a href="portofolio.html">Projecten</a>
+                <a href="skills.html" class="active">Skills</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main class="skills-container">
-        <nav class="profile-nav">
-            <ul>
-                <li><a href="index.html">Profile</a></li>
-                <li><a href="portofolio.html">Projecten</a></li>
-                <li><a href="skills.html" class="active">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <section class="hero">
+        <div class="wrap">
+            <p class="eyebrow">Skills</p>
+            <h1>Technische vaardigheden</h1>
+            <p class="hero-lead">De talen, frameworks en tools waarmee ik websites en webapps bouw, op school en in mijn eigen projecten.</p>
+        </div>
+    </section>
 
-        <section class="skills-left">
-            <p class="eyebrow">Stack</p>
-            <h2>Skills uit mijn CV</h2>
-            <p class="section-note">Alle technische skills en werkwijzen met een duidelijk niveau.</p>
-
-            <div class="skill-level-grid">
-                <article class="skill-card" style="--level: 90%;">
-                    <div class="skill-card-head">
-                        <h3>HTML</h3>
-                        <span>90%</span>
-                    </div>
-                    <div class="level-track" aria-label="HTML niveau 90 procent"><span></span></div>
-                    <p>Gevorderd</p>
-                </article>
-
-                <article class="skill-card" style="--level: 85%;">
-                    <div class="skill-card-head">
-                        <h3>CSS</h3>
-                        <span>85%</span>
-                    </div>
-                    <div class="level-track" aria-label="CSS niveau 85 procent"><span></span></div>
-                    <p>Gevorderd</p>
-                </article>
-
-                <article class="skill-card" style="--level: 75%;">
-                    <div class="skill-card-head">
-                        <h3>Tailwind</h3>
-                        <span>75%</span>
-                    </div>
-                    <div class="level-track" aria-label="Tailwind niveau 75 procent"><span></span></div>
-                    <p>Goed</p>
-                </article>
-
-                <article class="skill-card" style="--level: 70%;">
-                    <div class="skill-card-head">
-                        <h3>PHP</h3>
-                        <span>70%</span>
-                    </div>
-                    <div class="level-track" aria-label="PHP niveau 70 procent"><span></span></div>
-                    <p>Goed</p>
-                </article>
-
-                <article class="skill-card" style="--level: 65%;">
-                    <div class="skill-card-head">
-                        <h3>JavaScript</h3>
-                        <span>65%</span>
-                    </div>
-                    <div class="level-track" aria-label="JavaScript niveau 65 procent"><span></span></div>
-                    <p>Goed in ontwikkeling</p>
-                </article>
-
-                <article class="skill-card" style="--level: 60%;">
-                    <div class="skill-card-head">
-                        <h3>Symfony</h3>
-                        <span>60%</span>
-                    </div>
-                    <div class="level-track" aria-label="Symfony niveau 60 procent"><span></span></div>
-                    <p>Basis tot goed</p>
-                </article>
-
-                <article class="skill-card" style="--level: 70%;">
-                    <div class="skill-card-head">
-                        <h3>Next.js</h3>
-                        <span>70%</span>
-                    </div>
-                    <div class="level-track" aria-label="Next.js niveau 70 procent"><span></span></div>
-                    <p>Goed</p>
-                </article>
-
-                <article class="skill-card" style="--level: 75%;">
-                    <div class="skill-card-head">
-                        <h3>GitHub</h3>
-                        <span>75%</span>
-                    </div>
-                    <div class="level-track" aria-label="GitHub niveau 75 procent"><span></span></div>
-                    <p>Goed</p>
-                </article>
-
-                <article class="skill-card" style="--level: 70%;">
-                    <div class="skill-card-head">
-                        <h3>Scrum</h3>
-                        <span>70%</span>
-                    </div>
-                    <div class="level-track" aria-label="Scrum niveau 70 procent"><span></span></div>
-                    <p>Goed</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="workflow-section">
-            <article>
-                <span>01</span>
-                <h3>Structuur maken</h3>
-                <p>Ik begin met duidelijke HTML, logische pagina-indeling en een simpele flow.</p>
-            </article>
-            <article>
-                <span>02</span>
-                <h3>Interactie bouwen</h3>
-                <p>Daarna voeg ik JavaScript, formulieren of backend-logica toe waar dat nodig is.</p>
-            </article>
-            <article>
-                <span>03</span>
-                <h3>Verbeteren</h3>
-                <p>Ik test, vraag feedback en werk styling, responsiveness en details verder uit.</p>
-            </article>
-        </section>
-
-        <section class="detail-grid">
-            <div>
-                <p class="eyebrow">Talen</p>
-                <h2>Taalvaardigheid</h2>
-                <div class="language-list">
-                    <article>
-                        <h3>Koerdisch Kurmanji</h3>
-                        <p>Bijna eerstetaalniveau</p>
+    <main>
+        <section class="section">
+            <div class="wrap">
+                <div class="skill-groups">
+                    <article class="skill-group">
+                        <h3>Frontend</h3>
+                        <div class="skill-row"><span class="name">HTML</span><span class="level">Gevorderd</span><div class="bar"><span style="--level: 90%"></span></div></div>
+                        <div class="skill-row"><span class="name">CSS</span><span class="level">Gevorderd</span><div class="bar"><span style="--level: 85%"></span></div></div>
+                        <div class="skill-row"><span class="name">Tailwind CSS</span><span class="level">Goed</span><div class="bar"><span style="--level: 75%"></span></div></div>
+                        <div class="skill-row"><span class="name">JavaScript</span><span class="level">Goed</span><div class="bar"><span style="--level: 70%"></span></div></div>
+                        <div class="skill-row"><span class="name">TypeScript</span><span class="level">Goed in ontwikkeling</span><div class="bar"><span style="--level: 65%"></span></div></div>
+                        <div class="skill-row"><span class="name">Next.js</span><span class="level">Goed</span><div class="bar"><span style="--level: 70%"></span></div></div>
                     </article>
-                    <article>
-                        <h3>Koerdisch Sorani</h3>
-                        <p>Bijna eerstetaalniveau</p>
+
+                    <article class="skill-group">
+                        <h3>Backend &amp; data</h3>
+                        <div class="skill-row"><span class="name">PHP</span><span class="level">Goed</span><div class="bar"><span style="--level: 70%"></span></div></div>
+                        <div class="skill-row"><span class="name">Symfony</span><span class="level">Basis tot goed</span><div class="bar"><span style="--level: 60%"></span></div></div>
+                        <div class="skill-row"><span class="name">MySQL</span><span class="level">Goed in ontwikkeling</span><div class="bar"><span style="--level: 65%"></span></div></div>
+                        <div class="skill-row"><span class="name">Prisma</span><span class="level">Basis tot goed</span><div class="bar"><span style="--level: 60%"></span></div></div>
+                        <div class="skill-row"><span class="name">REST API's</span><span class="level">Goed in ontwikkeling</span><div class="bar"><span style="--level: 65%"></span></div></div>
+                        <div class="skill-row"><span class="name">Linux &amp; Apache</span><span class="level">Basis</span><div class="bar"><span style="--level: 50%"></span></div></div>
                     </article>
-                    <article>
-                        <h3>Engels</h3>
-                        <p>Vergevorderd</p>
-                    </article>
-                    <article>
-                        <h3>Nederlands</h3>
-                        <p>Vergevorderd</p>
-                    </article>
-                    <article>
-                        <h3>Arabisch</h3>
-                        <p>Gevorderd</p>
+
+                    <article class="skill-group">
+                        <h3>Tools &amp; werkwijze</h3>
+                        <div class="skill-row"><span class="name">Git &amp; GitHub</span><span class="level">Goed</span><div class="bar"><span style="--level: 75%"></span></div></div>
+                        <div class="skill-row"><span class="name">Scrum</span><span class="level">Goed</span><div class="bar"><span style="--level: 70%"></span></div></div>
+                        <div class="skill-row"><span class="name">Lovable</span><span class="level">Goed</span><div class="bar"><span style="--level: 75%"></span></div></div>
+                        <div class="skill-row"><span class="name">Firebase</span><span class="level">Goed</span><div class="bar"><span style="--level: 70%"></span></div></div>
+                        <div class="skill-row"><span class="name">AI-tools (Claude)</span><span class="level">Goed</span><div class="bar"><span style="--level: 75%"></span></div></div>
                     </article>
                 </div>
             </div>
-            <div>
-                <p class="eyebrow">Persoonlijk</p>
-                <h2>Hobby's en interesses</h2>
-                <div class="skill-cloud">
-                    <span>Videogames</span>
-                    <span>Voetbal</span>
-                    <span>Koken</span>
-                    <span>Zwemmen</span>
-                    <span>Biljart</span>
-                    <span>Pool</span>
+        </section>
+
+        <section class="section section-alt">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow">Werkwijze</p>
+                    <h2>Hoe ik werk</h2>
                 </div>
-                <p class="section-note">Mijn hobby's sluiten goed aan bij hoe ik leer: oefenen, samenwerken en steeds beter worden.</p>
+                <div class="steps">
+                    <article class="step">
+                        <span class="num">1</span>
+                        <h3>Structuur maken</h3>
+                        <p>Eerst begrijpen wat de gebruiker nodig heeft. Dan een duidelijke opbouw en datamodel.</p>
+                    </article>
+                    <article class="step">
+                        <span class="num">2</span>
+                        <h3>Bouwen en koppelen</h3>
+                        <p>Interface, logica, database en API-koppelingen bouwen in kleine stappen.</p>
+                    </article>
+                    <article class="step">
+                        <span class="num">3</span>
+                        <h3>Testen en verbeteren</h3>
+                        <p>Testen, feedback vragen en het werk bijhouden in sprint-logboeken.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap two-col">
+                <div>
+                    <p class="eyebrow">Talen</p>
+                    <h2>Taalvaardigheid</h2>
+                    <ul class="list-plain">
+                        <li><span class="name">Koerdisch (Kurmanji)</span><span class="meta">Bijna moedertaal</span></li>
+                        <li><span class="name">Koerdisch (Sorani)</span><span class="meta">Bijna moedertaal</span></li>
+                        <li><span class="name">Engels</span><span class="meta">Vergevorderd</span></li>
+                        <li><span class="name">Nederlands</span><span class="meta">Vergevorderd</span></li>
+                        <li><span class="name">Arabisch</span><span class="meta">Gevorderd</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="eyebrow">Persoonlijk</p>
+                    <h2>Hobby's</h2>
+                    <div class="tags">
+                        <span class="tag tag-neutral">Gaming</span>
+                        <span class="tag tag-neutral">Voetbal</span>
+                        <span class="tag tag-neutral">MMA</span>
+                        <span class="tag tag-neutral">Koken</span>
+                        <span class="tag tag-neutral">Zwemmen</span>
+                        <span class="tag tag-neutral">Biljart en pool</span>
+                    </div>
+                    <p style="margin-top: 18px; color: var(--muted);">Mijn hobby's passen bij hoe ik leer: oefenen, samenwerken en steeds beter worden.</p>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="skill-footer">
-        <p>&copy; 2026 Darvan Suleiman. Alle rechten voorbehouden.</p>
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <span>&copy; 2026 Darvan Suleiman</span>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/darvan-suleiman-3072932a0">LinkedIn</a>
+                <a href="https://github.com/Darvan23">GitHub</a>
+                <a href="mailto:darvankameran69616@gmail.com">E-mail</a>
+            </div>
+        </div>
     </footer>
 </body>
 

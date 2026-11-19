@@ -215,7 +215,7 @@
             }
             vy = dx * 0.55;
             ry += vy;
-            rx = Math.max(-35, Math.min(35, rx - dy * 0.35));
+            if (e.pointerType === "mouse") rx = Math.max(-35, Math.min(35, rx - dy * 0.35));
             apply();
         });
 
@@ -223,7 +223,7 @@
             if (!down) return;
             down = false;
             spin.classList.remove("grabbing");
-            if (moved >= 6) settle();
+            if (moved >= 6 || rx !== 0 || ry % 180 !== 0) settle();
         };
         window.addEventListener("pointerup", up);
         window.addEventListener("pointercancel", up);

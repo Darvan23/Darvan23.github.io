@@ -1275,3 +1275,16 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .spin-hint { font-size: 0.7rem; right: 8px; bottom: 8px; }
     .card-actions .button { flex: 1 1 auto; }
 }
+
+/* ---------- Touch: no double-tap zoom, no hover growth ---------- */
+* { touch-action: manipulation; }
+.spin, .ring-stage, .globe { touch-action: pan-y; }
+.spin img, .ring-item img, .deck-card img { -webkit-touch-callout: none; -webkit-user-drag: none; }
+
+@media (hover: none) {
+    .project-card:hover .project-thumb img,
+    a.project-thumb:hover .play-overlay span { transform: none; }
+    a.project-thumb:hover .play-overlay { background: transparent; }
+    .project-card:hover { box-shadow: none; border-color: var(--line); }
+    .button:hover, .social:hover, .game-list li:hover { transform: none; }
+}

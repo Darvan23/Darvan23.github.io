@@ -398,3 +398,51 @@
         });
     }
 })();
+
+/* ==========================================================
+   Analytics events (Umami). Only sends anything once the
+   Umami script is on the page; otherwise this does nothing.
+   ========================================================== */
+(() => {
+    const track = (name, data) => {
+        try { if (window.umami && typeof window.umami.track === "function") window.umami.track(name, data); } catch (_) {}
+    };
+    window.dsTrack = track;
+
+    document.addEventListener("click", (e) => {
+        const a = e.target.closest("a");
+        if (!a) return;
+        const href = a.getAttribute("href") || "";
+        const card = a.closest(".project-card");
+        const project = card ? (card.querySelector("h3")?.textContent || "").trim() : undefined;
+
+        if (href.includes("cv/")) track("CV downloaden", { taal: href.includes("-nl") ? "NL" : "EN" });
+        else if (a.closest(".ring-item")) track("3D ring klik", { project: a.querySelector("span")?.textContent.trim() });
+        else if (a.closest(".deck-card")) track("Deck klik", {});
+        else if (a.classList.contains("button-play") || a.querySelector(".play-overlay")) track("Game spelen", { game: project });
+        else if (href.startsWith("mailto:")) track("E-mail klik", { pagina: location.pathname });
+        else if (href.startsWith("tel:")) track("Telefoon klik", {});
+        else if (/linkedin\.com/.test(href)) track("Social klik", { site: "LinkedIn" });
+        else if (/instagram\.com/.test(href)) track("Social klik", { site: "Instagram" });
+        else if (/github\.com/.test(href)) track(card ? "Code bekijken" : "Social klik", card ? { project } : { site: "GitHub" });
+        else if (card) track("Project openen", { project, knop: a.textContent.trim() || "afbeelding" });
+    }, true);
+
+    // one event per page when someone plays with a 3D element
+    const once = new Set();
+    const trackOnce = (key, name, data) => { if (!once.has(key)) { once.add(key); track(name, data); } };
+
+    const observeFlip = (el, cb) => new MutationObserver(() => { if (el.classList.contains("flipped")) cb(); })
+        .observe(el, { attributes: true, attributeFilter: ["class"] });
+
+    document.querySelectorAll(".project-spin").forEach((spin) => {
+        const project = (spin.closest(".project-card")?.querySelector("h3")?.textContent || "").trim();
+        observeFlip(spin, () => trackOnce("spin:" + project, "Project omgedraaid", { project }));
+    });
+    const biz = document.querySelector(".biz");
+    if (biz) observeFlip(biz, () => trackOnce("biz", "Visitekaartje omgedraaid", {}));
+    const globe = document.querySelector(".globe");
+    if (globe) globe.addEventListener("pointerdown", () => trackOnce("globe", "Skills-bol gedraaid", {}));
+    const ring = document.querySelector(".ring-stage");
+    if (ring) ring.addEventListener("pointerdown", () => trackOnce("ring", "3D ring gedraaid", {}));
+})();

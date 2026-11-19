@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=6">
-    <script src="js/main.js?v=6" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=7">
+    <script src="js/main.js?v=7" defer></script>
+    <script>try{var q=new URLSearchParams(location.search).get("notrack");if(q==="1")localStorage.setItem("umami.disabled","1");if(q==="0")localStorage.removeItem("umami.disabled");}catch(e){}</script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989" data-domains="darvan23.github.io"></script>
 </head>
 
 <body>
@@ -154,6 +156,7 @@
 
                 form.reset();
                 statusText.textContent = "Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.";
+                if (window.dsTrack) window.dsTrack("Contactformulier verstuurd", {});
             } catch (error) {
                 statusText.textContent = "Er ging iets mis. Probeer het later opnieuw of mail mij direct.";
             } finally {

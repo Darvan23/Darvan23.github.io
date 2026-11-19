@@ -1288,3 +1288,15 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .project-card:hover { box-shadow: none; border-color: var(--line); }
     .button:hover, .social:hover, .game-list li:hover { transform: none; }
 }
+
+/* ---------- Phones: simple stacked cards, hard width cap ---------- */
+@media (max-width: 960px) {
+    .project-card.featured { display: flex; flex-direction: column; }
+    .project-card.featured .project-spin { min-height: 0; aspect-ratio: 16 / 9; margin: 10px 10px 0; width: calc(100% - 20px); }
+    .project-card.featured .project-body { padding: 18px 18px 22px; }
+}
+
+@media (max-width: 600px) {
+    .project-card { max-width: calc(100vw - 44px); overflow: hidden; }
+    .project-spin, .project-spin .spin-inner { max-width: 100%; }
+}

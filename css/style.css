@@ -911,3 +911,302 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
 }
 
 .hero-home h1 { font-size: clamp(2.7rem, 5.4vw, 4.7rem); }
+
+/* ==========================================================
+   3D components for Projects, Skills and Contact
+   ========================================================== */
+
+/* ---------- Grab-and-spin panel (projects + business card) ---------- */
+
+.spin {
+    position: relative;
+    perspective: 1100px;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.spin.grabbing { cursor: grabbing; }
+
+.spin-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--srx, 0deg)) rotateY(var(--sry, 0deg));
+}
+
+.spin-face {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.spin-back { transform: rotateY(180deg) translateZ(8px); }
+
+.spin-edge {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: #1b2558;
+    transform: translateZ(var(--z));
+}
+
+.spin-hint {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 3;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(7, 13, 36, 0.82);
+    border: 1px solid var(--line-strong);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.spin:hover .spin-hint { opacity: 1; transform: none; }
+.spin.flipped .spin-hint { opacity: 0; }
+
+/* project panel */
+.project-spin {
+    aspect-ratio: 16 / 9;
+    margin: 10px 10px 0;
+    border-radius: calc(var(--radius-l) - 8px);
+    transform: translateZ(30px);
+}
+
+.project-spin .project-thumb { position: absolute; inset: 0; margin: 0; transform: none; aspect-ratio: auto; border-radius: inherit; }
+.project-spin .spin-face { box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+
+.project-card.featured .project-spin { aspect-ratio: auto; min-height: 340px; margin: 10px; }
+.project-card.featured .project-spin .project-thumb { min-height: 0; }
+
+.project-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px 26px;
+    background:
+        radial-gradient(120% 120% at 100% 0%, rgba(184, 166, 255, 0.35), transparent 55%),
+        radial-gradient(100% 100% at 0% 100%, rgba(110, 231, 196, 0.18), transparent 55%),
+        linear-gradient(160deg, #18225a, #0b1233);
+    border: 1px solid var(--line-strong);
+}
+
+.project-back strong { font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.8rem); line-height: 1.1; }
+.project-back .kind { color: var(--text); font-size: 0.9rem; }
+.project-back small { color: var(--muted); font-size: 0.8rem; }
+
+/* ---------- Projects hero: fanned 3D deck ---------- */
+
+.deck-stage {
+    position: relative;
+    height: clamp(300px, 34vw, 400px);
+    perspective: 1200px;
+    opacity: 0;
+    animation: ring-in 1.4s var(--ease) 0.3s forwards;
+}
+
+.deck {
+    --dx: -26deg;
+    --dy: 10deg;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--dx)) rotateX(var(--dy));
+    transition: transform 0.6s var(--ease);
+}
+
+.deck-card {
+    --gap: 46px;
+    position: absolute;
+    width: clamp(220px, 24vw, 300px);
+    aspect-ratio: 16 / 9;
+    left: calc(clamp(220px, 24vw, 300px) / -2);
+    top: calc(clamp(220px, 24vw, 300px) * -0.28);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+    transform: translate3d(calc(var(--i) * var(--gap)), calc(var(--i) * -14px), calc(var(--i) * -70px));
+    transition: transform 0.7s var(--ease), border-color 0.3s;
+}
+
+.deck-card img { width: 100%; height: 100%; object-fit: cover; }
+.deck-stage:hover .deck-card { --gap: 96px; }
+.deck-card:hover { border-color: var(--accent); transform: translate3d(calc(var(--i) * var(--gap)), calc(var(--i) * -14px - 18px), calc(var(--i) * -70px + 40px)); }
+
+/* ---------- Skills globe ---------- */
+
+.globe {
+    position: relative;
+    height: clamp(320px, 36vw, 440px);
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    opacity: 0;
+    animation: ring-in 1.4s var(--ease) 0.3s forwards;
+}
+
+.globe.grabbing { cursor: grabbing; }
+
+.globe::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%, rgba(184, 166, 255, 0.22), transparent 55%),
+        radial-gradient(circle, rgba(143, 156, 255, 0.1), transparent 70%);
+    border: 1px solid rgba(143, 156, 255, 0.14);
+    box-shadow: inset 0 0 60px rgba(143, 156, 255, 0.12);
+}
+
+.globe-tag {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(143, 156, 255, 0.35);
+    background: rgba(12, 22, 56, 0.85);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    will-change: transform, opacity;
+    pointer-events: none;
+}
+
+.globe-tag.hot { border-color: var(--accent); background: linear-gradient(135deg, rgba(143, 156, 255, 0.35), rgba(184, 166, 255, 0.25)); }
+
+/* tilt for skill and step cards */
+.skill-group, .step {
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 0.6s var(--ease), border-color 0.3s;
+}
+
+.skill-group.is-tilting, .step.is-tilting { transition: transform 0.12s linear, border-color 0.3s; }
+.skill-group:hover, .step:hover { border-color: rgba(143, 156, 255, 0.35); }
+.skill-groups, .steps { perspective: 1400px; }
+
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+
+.lang {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.lang strong { display: block; font-family: var(--display); }
+.lang span { color: var(--muted); font-size: 0.86rem; }
+
+.lang .dots { display: flex; gap: 4px; margin-top: 8px; }
+.lang .dots i { width: 18px; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.1); }
+.lang .dots i.on { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
+/* ---------- Contact: 3D business card ---------- */
+
+.biz-stage { display: grid; place-items: center; min-height: clamp(280px, 30vw, 360px); opacity: 0; animation: ring-in 1.4s var(--ease) 0.3s forwards; }
+
+.biz-stage > div { width: min(460px, 100%); }
+
+.biz {
+    width: 100%;
+    aspect-ratio: 1.75;
+    border-radius: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.biz .spin-face {
+    padding: clamp(18px, 3vw, 30px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+
+.biz-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+        radial-gradient(130% 120% at 100% 0%, rgba(184, 166, 255, 0.55), transparent 50%),
+        radial-gradient(90% 90% at 0% 100%, rgba(110, 231, 196, 0.25), transparent 55%),
+        linear-gradient(150deg, #1d2a6e, #0b1233);
+}
+
+.biz-front::after {  /* sheen that moves with rotation */
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.18) 50%, transparent 60%);
+    transform: translateX(calc(var(--sheen, 0) * 1%));
+    pointer-events: none;
+}
+
+.biz-front .brand-mark { width: 46px; height: 46px; font-size: 1rem; }
+.biz-front strong { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.05; display: block; }
+.biz-front span { color: #c9d0ff; }
+
+.biz-back {
+    display: grid;
+    align-content: center;
+    gap: 8px;
+    background: linear-gradient(150deg, #f3f5ff, #d9deff);
+    color: #0b1233;
+    font-size: 0.95rem;
+}
+
+.biz-back b { font-family: var(--display); font-size: 1.1rem; margin-bottom: 4px; }
+.biz-back div { display: grid; grid-template-columns: 78px 1fr; gap: 10px; border-bottom: 1px solid rgba(11, 18, 51, 0.12); padding-bottom: 6px; font-size: 0.9rem; }
+.biz-back span { overflow-wrap: anywhere; text-align: right; }
+.biz-back div:last-child { border-bottom: 0; }
+.biz-back em { font-style: normal; color: #4a5384; }
+
+.biz-hint { margin-top: 16px; color: var(--muted); font-size: 0.85rem; text-align: center; }
+
+.socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.35s var(--ease), border-color 0.25s, background 0.25s;
+}
+
+.social:hover { color: var(--white); border-color: var(--accent); background: var(--surface-2); transform: translateY(-3px); }
+
+@media (max-width: 960px) {
+    .deck-stage { height: 280px; }
+    .deck-card { width: 200px; left: -100px; top: -56px; --gap: 34px; }
+    .deck-stage:hover .deck-card { --gap: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .biz { animation: none; }
+}

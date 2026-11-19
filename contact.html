@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=4">
-    <script src="js/main.js?v=4" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <script src="js/main.js?v=5" defer></script>
 </head>
 
 <body>
@@ -28,11 +28,13 @@
     </header>
 
     <section class="hero">
-        <div class="wrap">
-            <p class="eyebrow">Contact</p>
-            <h1>Neem contact op</h1>
-            <p class="hero-lead">Vragen over mijn projecten, stage of samenwerking? Stuur een bericht of mail mij direct.</p>
-            <div class="hero-actions">
+        <div class="wrap hero-grid">
+            <div>
+                <p class="eyebrow fade-in" style="--d:0.1s">Contact</p>
+                <h1 class="fade-in" style="--d:0.2s">Neem contact op</h1>
+                <p class="hero-lead fade-in" style="--d:0.35s">Vragen over mijn projecten, een stage of samenwerking? Stuur een bericht of mail mij direct.</p>
+                <div class="fade-in" style="--d:0.5s">
+    <div class="hero-actions">
                 <a class="button button-primary" href="mailto:darvankameran69616@gmail.com">Mail mij</a>
                 <details class="cv-download">
                     <summary class="button button-ghost">Download CV</summary>
@@ -41,6 +43,31 @@
                         <a href="cv/darvan-kameran-suleiman-cv-en.pdf" download>English</a>
                     </div>
                 </details>
+            </div>
+                </div>
+            </div>
+            <div class="biz-stage">
+                <div>
+                    <div class="spin biz" data-flip-on-click tabindex="0" role="button" aria-label="Visitekaartje. Klik om om te draaien.">
+                        <div class="spin-inner">
+                            <div class="spin-face biz-front">
+                                <span class="brand-mark">DS</span>
+                                <div>
+                                    <strong>Darvan Kameran Suleiman</strong>
+                                    <span>Frontend developer in opleiding</span>
+                                </div>
+                            </div>
+                            <div class="spin-face spin-back biz-back">
+                                <b>Contact</b>
+                                <div><em>E-mail</em><span>darvankameran69616@gmail.com</span></div>
+                                <div><em>Telefoon</em><span>06 158 210 23</span></div>
+                                <div><em>Plaats</em><span>Hoogvliet, Rotterdam</span></div>
+                                <div><em>GitHub</em><span>Darvan23</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="biz-hint">Klik of sleep om het kaartje om te draaien</p>
+                </div>
             </div>
         </div>
     </section>

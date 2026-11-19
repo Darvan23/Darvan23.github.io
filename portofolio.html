@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=4">
-    <script src="js/main.js?v=4" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <script src="js/main.js?v=5" defer></script>
 </head>
 
 <body>
@@ -28,13 +28,18 @@
     </header>
 
     <section class="hero">
-        <div class="wrap hero-single">
-            <p class="eyebrow">Portfolio</p>
-            <h1>Projecten</h1>
-            <p class="hero-lead">Games die je direct in je browser kunt spelen en projecten van mijn opleiding.</p>
-            <div class="hero-actions">
-                <a class="button button-primary" href="#games">Games</a>
-                <a class="button button-ghost" href="#school">Schoolprojecten</a>
+        <div class="wrap hero-grid">
+            <div>
+                <p class="eyebrow fade-in" style="--d:0.1s">Portfolio</p>
+                <h1 class="fade-in" style="--d:0.2s">Projecten</h1>
+                <p class="hero-lead fade-in" style="--d:0.35s">Games die je direct in je browser speelt, websites en webapps. Pak een screenshot vast en draai hem om voor de details.</p>
+                <div class="hero-actions fade-in" style="--d:0.5s">
+                    <a class="button button-primary" href="#games">Games</a>
+                    <a class="button button-ghost" href="#school">Schoolprojecten</a>
+                </div>
+            </div>
+            <div class="deck-stage" aria-hidden="true">
+                <div class="deck"><a class="deck-card" href="#games" style="--i:0" tabindex="-1"><img src="img/projects/paws-pennies.jpg" alt=""></a><a class="deck-card" href="#games" style="--i:1" tabindex="-1"><img src="img/projects/game-room.jpg" alt=""></a><a class="deck-card" href="#games" style="--i:2" tabindex="-1"><img src="img/projects/maze.jpg" alt=""></a><a class="deck-card" href="#games" style="--i:3" tabindex="-1"><img src="img/projects/chess.jpg" alt=""></a><a class="deck-card" href="#school" style="--i:4" tabindex="-1"><img src="img/projects/eenzone.jpg" alt=""></a></div>
             </div>
         </div>
     </section>

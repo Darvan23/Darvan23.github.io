@@ -1300,3 +1300,20 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .project-card { max-width: calc(100vw - 44px); overflow: hidden; }
     .project-spin, .project-spin .spin-inner { max-width: 100%; }
 }
+
+/* ---------- Fallbacks for older in-app browsers (Instagram, Facebook) ---------- */
+.spin-inner, .spin-face, .spin-edge, .project-spin .project-thumb,
+.project-card.featured .project-thumb img, .play-overlay, .project-card::after {
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+.project-thumb img, .ring-item img, .deck-card img { max-width: 100%; }
+
+@supports not (aspect-ratio: 16 / 9) {
+    .project-spin, .project-card.featured .project-spin { height: 0; padding-top: 56.25%; min-height: 0; }
+    .project-thumb { height: 0; padding-top: 56.25%; }
+    .project-spin .project-thumb { height: auto; padding-top: 0; }
+    .project-thumb img { position: absolute; top: 0; left: 0; }
+    .ring-item { height: calc(var(--w) * 0.625); }
+    .deck-card { height: 160px; }
+    .biz { height: 0; padding-top: 57%; }
+}

@@ -1254,3 +1254,24 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .project-card.featured .project-spin { min-height: 0; aspect-ratio: 16 / 9; margin: 10px 10px 0; }
     .project-card.featured h3 { font-size: 1.5rem; }
 }
+
+/* ---------- Safari: never let grid/flex children grow past the screen ---------- */
+.project-grid > *, .skill-groups > *, .steps > *, .two-col > *, .contact-grid > *, .hero-grid > *, .gamer > * { min-width: 0; }
+.project-card, .project-body, .card, .skill-group { min-width: 0; max-width: 100%; }
+.project-body p, .project-body h3, .hero-lead { overflow-wrap: anywhere; }
+.project-spin { width: calc(100% - 20px); }
+.project-card.featured .project-spin { width: auto; }
+
+@media (max-width: 960px) {
+    .project-card.featured { grid-template-columns: minmax(0, 1fr); }
+    .project-card.featured .project-spin { width: calc(100% - 20px); }
+    .hero-grid, .gamer, .two-col, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .project-grid, .skill-groups { grid-template-columns: minmax(0, 1fr); }
+    .project-card { width: 100%; }
+    .project-body { padding: 18px 18px 22px; }
+    .spin-hint { font-size: 0.7rem; right: 8px; bottom: 8px; }
+    .card-actions .button { flex: 1 1 auto; }
+}

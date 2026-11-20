@@ -6,13 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Darvan Suleiman</title>
     <meta name="description" content="Neem contact op met Darvan Suleiman.">
+    <meta name="theme-color" content="#070d24">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Darvan Suleiman">
+    <meta property="og:title" content="Contact | Darvan Suleiman">
+    <meta property="og:description" content="Neem contact op met Darvan Suleiman, frontend developer in opleiding.">
+    <meta property="og:url" content="https://darvan23.github.io/contact.html">
+    <meta property="og:image" content="https://darvan23.github.io/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Darvan Suleiman, frontend developer, met screenshots van zijn projecten">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | Darvan Suleiman">
+    <meta name="twitter:description" content="Neem contact op met Darvan Suleiman, frontend developer in opleiding.">
+    <meta name="twitter:image" content="https://darvan23.github.io/img/og-image.jpg">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <script>document.documentElement.classList.add("js")</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=13">
+    <link rel="stylesheet" href="css/style.css?v=14">
     <script src="js/main.js?v=11" defer></script>
-    <script src="js/bughunt.js?v=2" defer></script>
+    <script src="js/bughunt.js?v=3" defer></script>
+    <script src="js/i18n.js?v=1" defer></script>
     <script>try{var q=new URLSearchParams(location.search).get("notrack");if(q==="1")localStorage.setItem("umami.disabled","1");if(q==="0")localStorage.removeItem("umami.disabled");}catch(e){}</script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989" data-domains="darvan23.github.io"></script>
 </head>
@@ -136,7 +156,7 @@
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
             button.disabled = true;
-            button.textContent = "Bezig met versturen...";
+            button.textContent = (window.dsT || ((x) => x))("Bezig met versturen...");
             statusText.textContent = "";
 
             const data = {
@@ -156,13 +176,13 @@
                 if (!response.ok) throw new Error("Request failed");
 
                 form.reset();
-                statusText.textContent = "Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.";
+                statusText.textContent = (window.dsT || ((x) => x))("Bedankt! Je bericht is verstuurd. Check je inbox voor een bevestiging.");
                 if (window.dsTrack) window.dsTrack("Contactformulier verstuurd", {});
             } catch (error) {
-                statusText.textContent = "Er ging iets mis. Probeer het later opnieuw of mail mij direct.";
+                statusText.textContent = (window.dsT || ((x) => x))("Er ging iets mis. Probeer het later opnieuw of mail mij direct.");
             } finally {
                 button.disabled = false;
-                button.textContent = "Verstuur bericht";
+                button.textContent = (window.dsT || ((x) => x))("Verstuur bericht");
             }
         });
     </script>

@@ -4,6 +4,7 @@
 (() => {
     const TOTAL_BUGS = 12;
     const track = (n, d) => { if (window.dsTrack) window.dsTrack(n, d); };
+    const T = (s) => (window.dsT ? window.dsT(s) : s);
 
     /* ---------- launcher button ---------- */
     const fab = document.createElement("button");
@@ -49,9 +50,15 @@
     const help = overlay.querySelector(".bh-help");
     const win = overlay.querySelector(".bh-win");
     const touch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-    overlay.querySelector(".bh-help-keys").textContent = touch
-        ? "Sleep om te bewegen, je schiet automatisch"
-        : "← → of muis om te bewegen, spatie of klik om te schieten";
+    const setTexts = () => {
+        overlay.querySelector(".bh-help").firstChild.nodeValue = T("Schiet alle bugs weg!");
+        overlay.querySelector(".bh-help-keys").textContent = touch
+            ? T("Sleep om te bewegen, je schiet automatisch")
+            : T("← → of muis om te bewegen, spatie of klik om te schieten");
+        overlay.querySelector(".bh-again").textContent = T("Opnieuw");
+        overlay.querySelector(".bh-win .button-ghost").textContent = T("Speel mijn echte games");
+    };
+    setTexts();
 
     let W = 0, H = 0, dpr = 1;
     const resize = () => {
@@ -86,6 +93,7 @@
     }
 
     function start() {
+        setTexts();
         resize();
         overlay.hidden = false;
         document.documentElement.classList.add("bh-active");
@@ -122,7 +130,9 @@
     function finish() {
         running = false;
         const secs = (performance.now() - startTime) / 1000;
-        overlay.querySelector(".bh-win-time").textContent = `Alle ${TOTAL_BUGS} bugs weg in ${secs.toFixed(1)} seconden.`;
+        overlay.querySelector(".bh-win-time").textContent = (window.dsLang && window.dsLang() === "en")
+            ? `All ${TOTAL_BUGS} bugs squashed in ${secs.toFixed(1)} seconds.`
+            : `Alle ${TOTAL_BUGS} bugs weg in ${secs.toFixed(1)} seconden.`;
         win.hidden = false;
         track("Bug hunt gewonnen", { seconden: Math.round(secs) });
         // let the last sparks fade out

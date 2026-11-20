@@ -531,3 +531,38 @@
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flush(); });
     window.addEventListener("pagehide", flush);
 })();
+
+/* ---------- Game tiles: tilt toward mouse, tap to flip on touch ---------- */
+(() => {
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const tiles = document.querySelectorAll(".game-tile");
+    tiles.forEach((tile) => {
+        const inner = tile.querySelector(".tile-inner");
+        if (fine) {
+            tile.addEventListener("pointermove", (e) => {
+                if (tile.matches(":hover")) return; // hover already flips it
+            });
+        }
+        tile.addEventListener("click", () => {
+            if (!fine) tile.classList.toggle("flipped");
+            if (window.dsTrack) window.dsTrack("Game-icoon bekeken", { game: tile.querySelector(".tile-front strong").textContent });
+        });
+        tile.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tile.classList.toggle("flipped"); }
+        });
+    });
+    // whole row leans gently toward the mouse
+    const row = document.querySelector(".game-tiles");
+    if (row && fine && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        row.addEventListener("pointermove", (e) => {
+            const r = row.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width - 0.5;
+            const py = (e.clientY - r.top) / r.height - 0.5;
+            tiles.forEach((t) => {
+                t.style.setProperty("--ty", `${-14 + px * 30}deg`);
+                t.style.setProperty("--tx", `${8 - py * 20}deg`);
+            });
+        });
+        row.addEventListener("pointerleave", () => tiles.forEach((t) => { t.style.removeProperty("--ty"); t.style.removeProperty("--tx"); }));
+    }
+})();

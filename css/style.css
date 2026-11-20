@@ -1317,3 +1317,111 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .deck-card { height: 160px; }
     .biz { height: 0; padding-top: 57%; }
 }
+
+/* ---------- Games I play: floating 3D tiles (original icons, no logos) ---------- */
+.played { margin-top: clamp(40px, 6vw, 64px); }
+.played-title { font-size: 1.15rem; color: var(--muted); font-weight: 600; margin-bottom: 18px; }
+
+.game-tiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(12px, 2vw, 22px);
+    perspective: 900px;
+}
+
+.game-tile {
+    --c1: #8f9cff; --c2: #3c47a8;
+    position: relative;
+    aspect-ratio: 1;
+    cursor: pointer;
+    outline: none;
+    animation: tile-float 5s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+}
+
+@keyframes tile-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+.tile-inner {
+    position: absolute;
+    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--tx, 8deg)) rotateY(var(--ty, -14deg));
+    transition: transform 0.7s var(--ease);
+}
+
+.game-tile:hover .tile-inner,
+.game-tile:focus-visible .tile-inner,
+.game-tile.flipped .tile-inner { transform: rotateX(0deg) rotateY(180deg); }
+
+.tile-face {
+    position: absolute;
+    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.tile-front {
+    color: #fff;
+    background:
+        radial-gradient(120% 90% at 25% 10%, rgba(255, 255, 255, 0.35), transparent 50%),
+        linear-gradient(150deg, var(--c1), var(--c2));
+}
+
+.tile-front svg { width: 46%; height: auto; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); transform: translateZ(30px); }
+.tile-front strong { font-family: var(--display); font-size: clamp(0.82rem, 1.2vw, 1rem); color: #fff; line-height: 1.15; }
+
+.tile-back {
+    transform: rotateY(180deg) translateZ(12px);
+    background: linear-gradient(150deg, #18225a, #0b1233);
+    border-color: var(--c1);
+}
+
+.tile-back strong { font-family: var(--display); color: var(--white); font-size: clamp(0.85rem, 1.2vw, 1rem); }
+.tile-back span { color: var(--c1); font-size: 0.85rem; font-weight: 600; }
+
+/* thickness under each tile */
+.tile-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: var(--c2);
+    filter: brightness(0.45);
+    transform: translateZ(-10px);
+}
+
+.t-red    { --c1: #ff6b7a; --c2: #8c1f3a; }
+.t-ice    { --c1: #9fd4ff; --c2: #2b4a8a; }
+.t-olive  { --c1: #c8d47a; --c2: #4b5a2a; }
+.t-green  { --c1: #6ee7a0; --c2: #1f7a52; }
+.t-sunset { --c1: #ffb36b; --c2: #c2367a; }
+
+@media (max-width: 760px) {
+    .game-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 420px) {
+    .game-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .game-tile { animation: none; }
+}

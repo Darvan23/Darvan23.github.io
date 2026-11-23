@@ -1567,3 +1567,21 @@ form .button:disabled { opacity: 0.6; cursor: wait; }
     .lang-switch { position: absolute; top: 12px; right: 0; }
     .lang-switch button { min-width: 34px; height: 28px; padding: 0 8px; }
 }
+
+/* ---------- Project images: polished photo finish (no browser chrome) ---------- */
+.project-thumb::after,
+.ring-item::after,
+.deck-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 28%),
+        linear-gradient(0deg, rgba(7, 13, 36, 0.45) 0%, transparent 40%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.ring-item span { z-index: 2; }
+.deck-card { position: absolute; }

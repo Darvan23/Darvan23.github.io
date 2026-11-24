@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /demo/
+
+Sitemap: https://darvan.dev/sitemap.xml

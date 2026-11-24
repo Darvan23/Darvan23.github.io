@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css?v=15">
     <script src="js/main.js?v=11" defer></script>
     <script src="js/bughunt.js?v=3" defer></script>
-    <script src="js/i18n.js?v=1" defer></script>
+    <script src="js/i18n.js?v=2" defer></script>
     <script>try{var q=new URLSearchParams(location.search).get("notrack");if(q==="1")localStorage.setItem("umami.disabled","1");if(q==="0")localStorage.removeItem("umami.disabled");}catch(e){}</script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989" data-domains="darvan23.github.io"></script>
 </head>
@@ -153,17 +153,19 @@
                     </article>
 
                     <article class="project-card">
-                        <div class="project-thumb">
-                            <span class="thumb-badge muted">Impressie, alleen code</span>
-                            <img src="img/projects/hoger-lager.jpg" alt="Impressie van het Hoger Lager spel">
-                        </div>
+                        <a class="project-thumb" href="hoger-lager/" aria-label="Speel Hoger of Lager">
+                            <span class="thumb-badge">&#9654; Speelbaar</span>
+                            <img src="img/projects/hoger-lager.jpg" alt="Screenshot van Hoger of Lager: twee producten met prijzen">
+                            <span class="play-overlay"><span>&#9654;</span></span>
+                        </a>
                         <div class="project-body">
-                            <span class="kind">Schoolproject, game</span>
-                            <h3>Hoger Lager</h3>
-                            <p>Raad welk product duurder is. Mijn eerste game, met duidelijke feedback en simpele spelregels.</p>
-                            <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+                            <span class="kind">Schoolproject, opnieuw gebouwd</span>
+                            <h3>Hoger of Lager?</h3>
+                            <p>Raad of het volgende product duurder of goedkoper is. Met 48 producten, 3 levens, een timer, combo-bonussen, steeds moeilijkere rondes en een record dat bewaard blijft.</p>
+                            <div class="tags"><span class="tag">JavaScript</span><span class="tag">Web Audio</span><span class="tag">Canvas</span></div>
                             <div class="card-actions">
-                                <a class="button button-outline" href="https://github.com/ROCMondriaanTIN/st-sd-project-p01-hogerlager-Darvan23">Code op GitHub</a>
+                                <a class="button button-play" href="hoger-lager/">&#9654; Speel nu</a>
+                                <a class="button button-outline" href="https://github.com/Darvan23/Darvan23.github.io/tree/main/hoger-lager">Code</a>
                             </div>
                         </div>
                     </article>

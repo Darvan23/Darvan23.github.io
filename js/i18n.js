@@ -142,6 +142,13 @@
         "↻ Sleep om te draaien": "↻ Drag to spin",
         "Sleep terug om de screenshot te zien": "Drag back to see the screenshot",
 
+        "Schoolproject, opnieuw gebouwd": "School project, rebuilt",
+        "Hoger of Lager?": "Higher or Lower?",
+        "Raad of het volgende product duurder of goedkoper is. Met 48 producten, 3 levens, een timer, combo-bonussen, steeds moeilijkere rondes en een record dat bewaard blijft.":
+            "Guess whether the next product costs more or less. With 48 products, 3 lives, a timer, combo bonuses, rounds that get harder and a high score that is saved.",
+        "Web Audio": "Web Audio",
+        "Speel Hoger of Lager": "Play Higher or Lower",
+        "Screenshot van Hoger of Lager: twee producten met prijzen": "Screenshot of Higher or Lower: two products with prices",
         /* skills page */
         "Technische vaardigheden": "Technical skills",
         "De talen, frameworks en tools waarmee ik websites, webapps en games bouw. Mijn sterkste kant: frontend, styling en animatie.":

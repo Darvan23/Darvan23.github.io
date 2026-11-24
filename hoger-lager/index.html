@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoger of Lager? | Darvan Suleiman</title>
+    <meta name="description" content="Raad of het volgende product duurder of goedkoper is. Een browsergame van Darvan Suleiman.">
+    <meta name="theme-color" content="#070d24">
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>try{var q=new URLSearchParams(location.search).get("notrack");if(q==="1")localStorage.setItem("umami.disabled","1");if(q==="0")localStorage.removeItem("umami.disabled");}catch(e){}</script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989" data-domains="darvan23.github.io"></script>
+    <script src="game.js?v=1" defer></script>
+</head>
+
+<body>
+    <header class="bar">
+        <a class="back" href="../portofolio.html#games">← Portfolio</a>
+        <div class="hud" aria-live="polite">
+            <span class="lives" aria-label="Levens"></span>
+            <span class="score-box">Score <strong id="score">0</strong></span>
+            <span class="combo" id="combo" hidden></span>
+        </div>
+        <button class="icon-btn" id="mute" type="button" aria-label="Geluid uit">🔊</button>
+    </header>
+
+    <main>
+        <!-- Start screen -->
+        <section class="screen" id="start">
+            <p class="kicker">Een game van Darvan</p>
+            <h1>Hoger <span>of</span> Lager?</h1>
+            <p class="lead">Je ziet een product met zijn prijs. Is het volgende product <strong>duurder</strong> of <strong>goedkoper</strong>? Hoe langer je goed blijft gokken, hoe meer punten.</p>
+            <ul class="rules">
+                <li><b>❤️ 3 levens</b> per spel</li>
+                <li><b>⏱ 10 seconden</b> per ronde, sneller = meer punten</li>
+                <li><b>🔥 Combo</b> na 3 goed op rij: dubbele punten</li>
+            </ul>
+            <button class="btn btn-primary" id="start-btn" type="button">Start spel</button>
+            <p class="best-line">Jouw record: <strong id="best-start">0</strong></p>
+        </section>
+
+        <!-- Game -->
+        <section class="screen" id="game" hidden>
+            <div class="timer" aria-hidden="true"><span id="timer-fill"></span></div>
+            <p class="round-line">Ronde <strong id="round">1</strong></p>
+
+            <div class="arena">
+                <article class="card" id="card-a">
+                    <div class="emoji" id="a-emoji"></div>
+                    <h2 id="a-name"></h2>
+                    <p class="price" id="a-price"></p>
+                </article>
+
+                <div class="vs">VS</div>
+
+                <article class="card card-b" id="card-b">
+                    <div class="emoji" id="b-emoji"></div>
+                    <h2 id="b-name"></h2>
+                    <p class="price" id="b-price">€ ???</p>
+                    <div class="choices" id="choices">
+                        <button class="btn btn-up" id="higher" type="button">▲ Hoger</button>
+                        <button class="btn btn-down" id="lower" type="button">▼ Lager</button>
+                    </div>
+                </article>
+            </div>
+            <p class="hint">Tip: gebruik de pijltjestoetsen ↑ en ↓</p>
+            <p class="toast" id="toast" aria-live="assertive"></p>
+        </section>
+
+        <!-- Game over -->
+        <section class="screen" id="over" hidden>
+            <p class="kicker" id="over-kicker">Game over</p>
+            <h1 class="final"><span id="final-score">0</span> punten</h1>
+            <p class="new-record" id="new-record" hidden>🏆 Nieuw record!</p>
+            <div class="stats">
+                <div><strong id="stat-rounds">0</strong><span>rondes goed</span></div>
+                <div><strong id="stat-streak">0</strong><span>langste reeks</span></div>
+                <div><strong id="stat-best">0</strong><span>jouw record</span></div>
+            </div>
+            <div class="over-actions">
+                <button class="btn btn-primary" id="again-btn" type="button">Opnieuw spelen</button>
+                <a class="btn btn-ghost" href="../portofolio.html#games">Meer games</a>
+            </div>
+        </section>
+    </main>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <footer class="foot">Prijzen zijn schattingen voor Nederland in 2026, alleen voor de fun.</footer>
+</body>
+
+</html>

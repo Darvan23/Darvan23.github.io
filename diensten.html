@@ -29,10 +29,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=16">
+    <link rel="stylesheet" href="css/style.css?v=17">
     <script src="js/main.js?v=11" defer></script>
     <script src="js/bughunt.js?v=3" defer></script>
-    <script src="js/i18n.js?v=3" defer></script>
+    <script src="js/i18n.js?v=4" defer></script>
     <script>try{var q=new URLSearchParams(location.search).get("notrack");if(q==="1")localStorage.setItem("umami.disabled","1");if(q==="0")localStorage.removeItem("umami.disabled");}catch(e){}</script>
     <script>try{var m=new URLSearchParams(location.search).get("me");if(m==="0")localStorage.removeItem("ds-me");else if(m)localStorage.setItem("ds-me",m);var me=localStorage.getItem("ds-me");if(me){var n=0,t=setInterval(function(){if(window.umami&&umami.identify){clearInterval(t);umami.identify("darvan-"+me,{owner:"Darvan",device:me});}else if(++n>40)clearInterval(t);},250);}}catch(e){}</script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="db2eae29-f59c-4067-9ddf-e38b663fb989" data-domains="darvan.dev,darvan23.github.io"></script>
@@ -69,9 +69,14 @@
             <div class="wrap">
                 <div class="section-head">
                     <span class="eyebrow">Prijzen</span>
-                    <h2>Kies wat bij jouw zaak past</h2>
+                    <h2>Kies wat bij jou past</h2>
                     <p>Alle prijzen zijn vanafprijzen. Na een kort gesprek krijg je een vaste prijs, zonder verrassingen.</p>
                 </div>
+                <div class="svc-tabs" role="tablist" aria-label="Soort klant">
+                    <button type="button" role="tab" id="tab-bedrijven" aria-controls="panel-bedrijven" aria-selected="true">Voor bedrijven</button>
+                    <button type="button" role="tab" id="tab-particulieren" aria-controls="panel-particulieren" aria-selected="false" tabindex="-1">Voor particulieren</button>
+                </div>
+                <div class="svc-panel" id="panel-bedrijven" role="tabpanel" aria-labelledby="tab-bedrijven">
                 <div class="price-grid">
                     <article class="price-card">
                         <h3>One-page website</h3>
@@ -120,6 +125,77 @@
                         <p>Ik houd je website online en pas kleine dingen voor je aan, zoals nieuwe openingstijden, prijzen of foto's. Je hoeft zelf niks te doen.</p>
                     </div>
                     <p class="price"><small>vanaf</small> €20<small>/maand</small></p>
+                </div>
+                </div>
+
+                <div class="svc-panel" id="panel-particulieren" role="tabpanel" aria-labelledby="tab-particulieren" hidden>
+                    <div class="private-intro">
+                        <div>
+                            <h3>Voor jezelf of een speciale dag</h3>
+                            <p>Een uitnodiging die je gasten niet vergeten. Gewoon via WhatsApp te delen, in jullie eigen talen: Nederlands, Koerdisch, Arabisch, Engels en meer.</p>
+                        </div>
+                        <a class="button button-primary" href="demo/uitnodiging/" target="_blank" rel="noopener">Bekijk de demo-uitnodiging</a>
+                    </div>
+                    <div class="price-grid">
+                        <article class="price-card">
+                            <h3>Digitale uitnodiging</h3>
+                            <p class="price"><small>vanaf</small> €75</p>
+                            <p class="price-for">Voor een verloving, henna-avond, verjaardag of babyshower.</p>
+                            <ul class="price-list">
+                                <li>Eén mooie pagina met animatie</li>
+                                <li>Namen, datum en locatie met kaart</li>
+                                <li>Aftellen naar de dag</li>
+                                <li>Knop om het in je agenda te zetten</li>
+                                <li>Te delen via WhatsApp</li>
+                            </ul>
+                            <a class="button button-ghost" href="https://wa.me/31615821023?text=Hoi%20Darvan%2C%20ik%20heb%20interesse%20in%20een%20uitnodiging%20of%20persoonlijke%20website." target="_blank" rel="noopener">Vraag dit aan</a>
+                        </article>
+                        <article class="price-card">
+                            <h3>Digitale trouwuitnodiging</h3>
+                            <p class="price"><small>vanaf</small> €125</p>
+                            <p class="price-for">Een luxe uitnodiging voor jullie bruiloft.</p>
+                            <ul class="price-list">
+                                <li>Envelop die opengaat</li>
+                                <li>Jullie foto en eigen kleuren</li>
+                                <li>Programma van de dag</li>
+                                <li>2 talen inbegrepen</li>
+                                <li>Muziek als je wilt</li>
+                            </ul>
+                            <a class="button button-ghost" href="https://wa.me/31615821023?text=Hoi%20Darvan%2C%20ik%20heb%20interesse%20in%20een%20uitnodiging%20of%20persoonlijke%20website." target="_blank" rel="noopener">Vraag dit aan</a>
+                        </article>
+                        <article class="price-card featured">
+                            <span class="price-badge">Meest compleet</span>
+                            <h3>Trouwwebsite met RSVP</h3>
+                            <p class="price"><small>vanaf</small> €275</p>
+                            <p class="price-for">Alles voor jullie gasten op één plek.</p>
+                            <ul class="price-list">
+                                <li>Alles van de trouwuitnodiging</li>
+                                <li>Jullie verhaal en foto's</li>
+                                <li>Gasten laten weten of ze komen</li>
+                                <li>Overzicht van al je gasten</li>
+                                <li>2 talen inbegrepen</li>
+                            </ul>
+                            <a class="button button-primary" href="https://wa.me/31615821023?text=Hoi%20Darvan%2C%20ik%20heb%20interesse%20in%20een%20uitnodiging%20of%20persoonlijke%20website." target="_blank" rel="noopener">Vraag dit aan</a>
+                        </article>
+                    </div>
+                    <div class="price-grid price-grid-2">
+                        <article class="price-card">
+                            <h3>Koppelwebsite</h3>
+                            <p class="price"><small>vanaf</small> €75</p>
+                            <p class="price-for">Een cadeau voor een jubileum of Valentijnsdag: jullie verhaal, foto's en een persoonlijke boodschap.</p>
+                            <a class="button button-ghost" href="https://wa.me/31615821023?text=Hoi%20Darvan%2C%20ik%20heb%20interesse%20in%20een%20uitnodiging%20of%20persoonlijke%20website." target="_blank" rel="noopener">Vraag dit aan</a>
+                        </article>
+                        <article class="price-card">
+                            <h3>Persoonlijke website</h3>
+                            <p class="price"><small>vanaf</small> €175</p>
+                            <p class="price-for">Voor studenten, artiesten en freelancers: een pagina over jou, je werk en hoe mensen je bereiken.</p>
+                            <a class="button button-ghost" href="https://wa.me/31615821023?text=Hoi%20Darvan%2C%20ik%20heb%20interesse%20in%20een%20uitnodiging%20of%20persoonlijke%20website." target="_blank" rel="noopener">Vraag dit aan</a>
+                        </article>
+                    </div>
+                    <div class="extras">
+                        <div><strong>Extra taal</strong><span>+€25 per taal</span></div>
+                        <div><strong>Spoed, klaar binnen 3 dagen</strong><span>+€40</span></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,6 +280,37 @@
             </div>
         </div>
     </footer>
+    <script>
+    (() => {
+        const tabs = [...document.querySelectorAll('.svc-tabs [role=tab]')];
+        function show(id, focus) {
+            tabs.forEach((t) => {
+                const on = t.id === 'tab-' + id;
+                t.setAttribute('aria-selected', String(on));
+                t.tabIndex = on ? 0 : -1;
+                document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+                if (on && focus) t.focus();
+            });
+        }
+        tabs.forEach((t, i) => {
+            t.addEventListener('click', () => {
+                const id = t.id.replace('tab-', '');
+                show(id);
+                history.replaceState(null, '', '#' + id);
+                if (window.dsTrack) window.dsTrack('Diensten tab', { tab: id });
+            });
+            t.addEventListener('keydown', (e) => {
+                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+                show(next.id.replace('tab-', ''), true);
+            });
+        });
+        if (location.hash === '#particulieren') {
+            show('particulieren');
+            document.getElementById('prijzen').scrollIntoView();
+        }
+    })();
+    </script>
 </body>
 
 </html>
